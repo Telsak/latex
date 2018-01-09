@@ -153,7 +153,7 @@ genom att gå in på sin spelarprofil är det enkelt att fylla på mer. Därefte
 \subsection{Arkitektur}\index{system!Arkitektur}
 Arkadmaskinen består av flera entiteter som tillsammans skapar arkadsystemet. Den fysiska vyn i Figur \ref{fig_physview} visar informationsflödet 
 mellan dessa entiteter. Datorn Raspberry Pi kör kontinuerligt ett pythonscript som läser data från Högskolan Väst-kortet via kortläsaren. 
-När kort-ID och kommunicerar sedan med ett webAPI för att kontrollera huruvida kortet finns registrerat i systemet eller ej. För 
+När kort-ID är inläst kommunicerar datorn med ett webAPI för att kontrollera huruvida kortet finns registrerat i systemet eller ej. För 
 icke-registrerade kort genereras en QR-kod för användaren som leder till hemsidan som ligger på webbservern. Där kan användaren 
 registrera sig och ladda på krediter. Nu finns användarinformation och kopplat kort-ID lagrat i databasen. För registrerade kort med 
 krediter körs spelet och datorn tolkar signaler från knappar och joystick. Gränssnittet mellan användare och arkadmaskin är skärmen 
@@ -224,25 +224,25 @@ så beslutet blev att skära ut “NTK ARCADE” i designfolie och sätta mellan
 \section{Dator och kortläsare}\index{design!Dator och kortläsare}
 \subsection{Översikt}\index{design!Översikt}
 Enkortsdatorn Raspberry Pi 3 valdes som hårdvaruplattform i projektet. Den främsta anledningen är att datorn erbjuder flertalet
-externa anslutningsmöjligheter, vilket var en förutsättning för att kunna koppla in kortläsare, knappar och joystick. Datorn 
+externa anslutningsmöjligheter, vilket var en förutsättning för att kunna koppla in kortläsare, knappar och joystick (se Figur \ref{fig_knappar}). Datorn 
 erbjuder också god prestanda för enklare 2D- och 3D-applikationer samt att energiförbrukningen är låg. Kortläsaren i projektet 
-bestod av en RFID-läsare med kretsen RC-522. Valet baserades på att kretsen skulle stödja Högskolan Väst-korten, som är av typen 
+bestod av en RFID-läsare med kretsen RC-522 (se Figur \ref{fig_pirfid}). Valet baserades på att kretsen skulle stödja Högskolan Väst-korten, som är av typen 
 MIFARE och använder 13,56MHz frekvens för kommunikation. Det var också viktigt att kortläsaren var kompatibel med datorn i termer 
 av drivrutinsstöd och fysisk anslutning.
 
 \begin{figure}[!htb]
-  \begin{minipage}{0.48\textwidth}
-    \centering
-    \fbox{\includegraphics[width=.9\linewidth]{piwithrfid}}
-    \caption{Raspberry PI med kortläsare (RC-522)}
-    \label{fig_pirfid}
-  \end{minipage}\hfill
-  \begin{minipage}{0.48\textwidth}
+  \begin{minipage}{0.44\textwidth}
     \centering
     \fbox{\includegraphics[width=.9\linewidth]{rpi-arkad}}		
     \caption{Knappar och joystick inkopplade}
     \label{fig_knappar}
   \end{minipage}\hfill
+  \begin{minipage}{0.44\textwidth}
+    \centering
+    \fbox{\includegraphics[width=.9\linewidth]{piwithrfid}}
+    \caption{Raspberry PI med kortläsare (RC-522)}
+    \label{fig_pirfid}
+  \end{minipage}\hfill 
 \end{figure}
 
 \subsection{Inkoppling}\index{design!Inkoppling}
@@ -250,7 +250,7 @@ Kortläsaren kopplas till datorn via en Serial Peripheral Interface (SPI) port. 
 datorn som agerar masterenhet. Kortläsaren drivs via datorns inbyggda 3,3V-matning. För att läsa data från Högskolan Väst-korten 
 installerades drivrutiner för kortläsaren samt modulen SPI-Py. Modulen inkluderar bibliotek med färdiga funktioner för att enklare 
 kunna kommunicera via SPI-porten. Knappar och Joystick ansluts till godtyckliga General Purpose Input Output (GPIO) portar på datorn 
-och mappas till spelet Tyrian via mjukvara.
+och mappas till spelet Tyrian via mjukvara. Se Figur \ref{fig_gpio} för inkopplings-schema.
 
 \begin{figure}[h]
 \centering\includegraphics[width=.8\textwidth]{gpio}
@@ -261,7 +261,7 @@ och mappas till spelet Tyrian via mjukvara.
 \subsection{Arkadens Mainloop}\index{design!Mainloop}
 Programmet som körs på arkadmaskinen är skrivet i Python och styr kopplingen mellan skanningen av RFID-kort och startande av spel. 
 Efter att spelaren har spelat klart sparas även information om spelsessionen såsom hur mycket poäng spelaren fick och speltid. 
-Den informationen presenteras sedan på hemsidan som en highscore-lista. Nedan visas med pseudo-kod hur programmet är uppbyggt. 
+Den informationen presenteras sedan på hemsidan som en highscore-lista. I Figur \ref{fig_mainloop} visas med pseudo-kod hur programmet är uppbyggt. 
 
 \begin{figure}[!h]
 \includegraphics[width=.4\textwidth]{mainloop}
@@ -356,7 +356,7 @@ Valet att bygga ett större kabinett grundades i att vi förmodligen bara skulle
 rejält och så likt de klassiska arkadmaskinerna som möjligt. När det kommer till utsågning av material och att det blev elever 
 på MÅG som gjorde det var för att ingen i gruppen har större erfarenhet kring detta och vi ville ha delarna så perfekta det 
 bara gick. Att det blev MDF som material grundades i att de flesta ritningar och guider använde MDF och det var det bästa 
-alternativet. Att vi gjorde valet med att sätta plexiglas på kontrollbrädan var för att det gav ett mer autentiskt intryck.
+alternativet. Att vi gjorde valet med att sätta plexiglas på kontrollbrädan (se Figur \ref{fig_kontrollpanel} var för att det gav ett mer autentiskt intryck.
 
 \begin{figure}[h]
 \centering\includegraphics[width=.6\textwidth]{kontrollpanel}
@@ -396,7 +396,7 @@ breakout board med rätt anslutningar.
 
 \subsection{Hemsida}\index{analys!Hemsida}
 
-Vi valde att ha med flera olika underrubriker än de rent användbara som “logga in” och “registrera”. (se Figur \ref{fig_profilsida}
+Vi valde att ha med flera olika underrubriker än de rent användbara som “logga in” och “registrera”. (se Figur \ref{fig_profilsida})
 Detta då vi ansåg att det blev väldigt tomt utan, och utfyllnaden gav hemsidan en bättre känsla av att vara komplett med information om 
 oss, om arkadmaskiner generellt samt om spelet som vi hade med. Hemsidan med sitt stilrena utseende fick i navigeringsfältet ta med inspiration av arkadmaskinen genom att navigeringsknapparna blev 
 omvandlade till arkadknappar. 

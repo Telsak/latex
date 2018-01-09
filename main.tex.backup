@@ -151,7 +151,7 @@ Då avslutas spelet och startsidan på arkadmaskinen visas igen. Om spelaren sak
 genom att gå in på sin spelarprofil är det enkelt att fylla på mer. Därefter går det att spela igen.
 
 \subsection{Arkitektur}\index{system!Arkitektur}
-Arkadmaskinen består av flera entiteter som tillsammans skapar arkadsystemet. Den fysiska vyn i Fig. \ref{fig_physview} visar informationsflödet 
+Arkadmaskinen består av flera entiteter som tillsammans skapar arkadsystemet. Den fysiska vyn i Figur \ref{fig_physview} visar informationsflödet 
 mellan dessa entiteter. Datorn Raspberry Pi kör kontinuerligt ett pythonscript som läser data från Högskolan Väst-kortet via kortläsaren. 
 När kort-ID och kommunicerar sedan med ett webAPI för att kontrollera huruvida kortet finns registrerat i systemet eller ej. För 
 icke-registrerade kort genereras en QR-kod för användaren som leder till hemsidan som ligger på webbservern. Där kan användaren 
@@ -169,6 +169,7 @@ och högtalarna.
 %	CHAPTER 2
 %----------------------------------------------------------------------------------------
 
+\chapterimage{headercode.png}
 \chapter{Design och implementering}
 \section{Chassi}\index{design!Chassi}
 Gruppen diskuterade till en början att göra ett litet kabinett som skulle behöva stå på ett högre bord om man vill stå upp och
@@ -179,7 +180,7 @@ på Magnus Åbergsgymnasiets (MÅG) byggprogram för att få dem enligt vår CAD
 Det som användes var två stycken MDF skivor, två plexiglas, en regel till bottenplatta samt att stödja upp nederdelen av skåpet. 
 Detta har sponsrats av Karl Hedin i Vänersborg. Invändigt för att montera fast de MDF skivor som användes till högtalare, tak, 
 frontpanel, kontrollbräda och den liggande brädan under kontrollbrädan användes planhyvlat virke. Kvartsstaven användes för att 
-skapa en snyggare övergång mellan skärmen och kontrollbrädans kanter.
+skapa en snyggare övergång mellan skärmen och kontrollbrädans kanter. Tabell \ref{table_material} listar allt material och Figur \ref{fig_material} är de utsågade delarna.
 
 \begin{table}[h]
 \centering\resizebox{.9\textwidth}{!}{%
@@ -218,7 +219,7 @@ utsågade hål och högtalarna sitter fastspända på baksidan med hålband. Fö
 och detta löstes genom att fräsa ur dem lite. Det behövdes även fräsas för att joystickarna skulle komma upp mer. Hålen i plexiglaset
 ritades ut med hjälp av ursprungsbrädan och en hålsåg användes för att göra hålen. För att dölja MDF materialet användes även här 
 designfolie och hålen skars ut men inte hela vägen runt utan i snitt in mot mitten. Vi hittade ingen bra bild att använda till bannern 
-så beslutet blev att skära ut “NTK ARKADE” i designfolie och sätta mellan de två plexiglasen.
+så beslutet blev att skära ut “NTK ARCADE” i designfolie och sätta mellan de två plexiglasen.
 
 \section{Dator och kortläsare}\index{design!Dator och kortläsare}
 \subsection{Översikt}\index{design!Översikt}
@@ -262,24 +263,9 @@ Programmet som körs på arkadmaskinen är skrivet i Python och styr kopplingen 
 Efter att spelaren har spelat klart sparas även information om spelsessionen såsom hur mycket poäng spelaren fick och speltid. 
 Den informationen presenteras sedan på hemsidan som en highscore-lista. Nedan visas med pseudo-kod hur programmet är uppbyggt. 
 
-\begin{figure}
-\begin{algorithm}[H]
- \While{arcade is running}{
-  wait for player to scan HV-card\;
-  \eIf{player exist}{
-   debit player 10 coins\;
-   \eIf{debit went well}{
-    start OpenTyrian\;
-    wait for game over\;
-    save highscore\;
-   }{
-    inform the player to refill coins\;
-   }
-  }{
-   inform the player to register\;
-  }
- }
-\end{algorithm}
+\begin{figure}[!h]
+\includegraphics[width=.4\textwidth]{mainloop}
+\label{fig_mainloop}
 \caption{mainloop körandes på arkadmaskinen}
 \end{figure}
 
@@ -287,7 +273,7 @@ Den informationen presenteras sedan på hemsidan som en highscore-lista. Nedan v
 För att få spelet att fungera som vi ville fullt ut behövdes viss modifikation göras. En av ändringarna som gjordes 
 gäller spelmenyn som visas mellan de olika episoderna i spelet. I den menyn skulle användaren kunna ändra options för 
 spelet samt kunna gå tillbaka till huvudmenyn och göra ytterligare ändringar. 
-För att förhindra detta gjordes ändringar i koden enligt figur \ref{fig_opentyrian} där valet för options i menyn 
+För att förhindra detta gjordes ändringar i koden enligt Figur \ref{fig_opentyrian} där valet för options i menyn 
 (“case 3” i koden) kommenterats bort helt samt att om spelaren väljer quit i menyn (“case 4” i koden) så skapas en 
 fil med namn QUIT\_GAME\_TRUE som pythonskriptet kontinuerligt kontrollerar om den finns. När pythonskriptet upptäcker 
 filen stängs spelet av helt istället för att spelaren skulle komma tillbaka till spelets huvudmeny.
@@ -301,9 +287,9 @@ Exempel på andra ändringar som gjorts var även att spara highscore till en fi
 spelets slut samt inaktivera huvudmenyn vid spelets start så spelaren kommer in i ett spel direkt utan att behöva 
 trycka i menyn.
 
-\begin{wrapfigure}{r}{0.35\textwidth}
+\begin{wrapfigure}{r}{0.45\textwidth}
   \begin{center}
-    \includegraphics[width=0.3\textwidth]{databas}
+    \includegraphics[width=0.4\textwidth]{databas}
   \end{center}
   \caption{Databastabeller}
   \label{fig_databas}
@@ -314,15 +300,15 @@ trycka i menyn.
 
 Databasen som används är MariaDB\footnote{[https://mariadb.org/about/}. Kommunikationen mellan arkadmaskinen och databasen 
 sker via ett webAPI skrivet i PHP. På detta sätt blir systemet skalbart och ändringar kan lätt göras utan att behöva göra 
-ändringar direkt på arkadmaskinen.
+ändringar direkt på arkadmaskinen. Databasen är uppbyggd av två tabeller (se Figur \ref{fig_databas}): player och highscore.
+\clearpage
+I player sparas information om spelare såsom namn, epost med mera. I highscore sparas information efter varje spelrunda som
+har gjorts med hur mycket poäng spelaren fick, hur länge spelet pågick med mera. Nedan i tabell \ref{table_databas} förklaras de olika fälten
+i tabellerna mer noggrant.
 
-Databasen är uppbyggd av två tabeller (se figur X): player och highscore. I player sparas information om spelare 
-såsom namn, epost med mera. I highscore sparas information efter varje spelrunda som har gjorts med hur mycket 
-poäng spelaren fick, hur länge spelet pågick med mera. Nedan i tabell XX förklaras de olika fälten i tabellerna mer noggrant.
+%\clearpage\newpage
 
-\clearpage\newpage
-
-\begin{table}
+\begin{table}[!h]
 \centering
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{ ||l|l|l|l|| } 
@@ -349,15 +335,15 @@ poäng spelaren fick, hur länge spelet pågick med mera. Nedan i tabell XX för
 
 Vi köpte domännamnet arkadprojekt.se som hålls av Binero och för att bygga upp hemsidans design och funtioner användes HTML, CSS och PHP.
 
+De funktioner som framförallt behövs på hemsidan är möjligheten som spelare att kunna logga in och fylla på coins för att sedan kunna spela 
+på arkadmaskinen. Utöver denna funktion har vi med highscore hämtat från spelet, information om oss som grupp, information om arkadmaskinens 
+historia samt om spelet Tyrian. Vi valde även att ha med en supportsida där man kan ta kontakt med någon av gruppmedlemmarna via mail om det 
+skulle vara något med maskinen eller spelet som inte skulle fungera. Hemsidan är utformad med de mest nödvändiga funktionerna och hålls väldigt stilren, se Figur \ref{fig_hemsida}
 \begin{figure}[h]
 \centering\includegraphics[width=\textwidth]{hemsida}
 \caption{Projektets hemsida}
 \label{fig_hemsida}
 \end{figure}
-De funktioner som framförallt behövs på hemsidan är möjligheten som spelare att kunna logga in och fylla på coins för att sedan kunna spela 
-på arkadmaskinen. Utöver denna funktion har vi med highscore hämtat från spelet, information om oss som grupp, information om arkadmaskinens 
-historia samt om spelet Tyrian. Vi valde även att ha med en supportsida där man kan ta kontakt med någon av gruppmedlemmarna via mail om det 
-skulle vara något med maskinen eller spelet som inte skulle fungera. Hemsidan är utformad med de mest nödvändiga funktionerna och hålls väldigt stilren.
 
 %----------------------------------------------------------------------------------------
 %	CHAPTER 3
@@ -370,11 +356,15 @@ Valet att bygga ett större kabinett grundades i att vi förmodligen bara skulle
 rejält och så likt de klassiska arkadmaskinerna som möjligt. När det kommer till utsågning av material och att det blev elever 
 på MÅG som gjorde det var för att ingen i gruppen har större erfarenhet kring detta och vi ville ha delarna så perfekta det 
 bara gick. Att det blev MDF som material grundades i att de flesta ritningar och guider använde MDF och det var det bästa 
-alternativet. Att vi gjorde valet med att sätta plexiglas på kontrollbrädan var för att det gav ett mer autentiskt intryck.
+alternativet. Att vi gjorde valet med att sätta plexiglas på kontrollbrädan (se Figur \ref{fig_kontrollpanel} var för att det gav ett mer autentiskt intryck.
 
+\begin{figure}[h]
+\centering\includegraphics[width=.6\textwidth]{kontrollpanel}
+\caption{Kontrollpanelen}
+\label{fig_kontrollpanel}
+\end{figure}
 
-
-\section{Dator och RFID-läsare}\index{analys!Dator och RFID-läsare}
+\section{Dator och kortläsare}\index{analys!Dator och RFID-läsare}
 %\begin{wrapfigure}[13]{r}{0.25\textwidth}
 %  \begin{center}
 %    \includegraphics[width=0.2\textwidth]{breakout}
@@ -396,22 +386,20 @@ Enkortsdatorn Raspberry Pi 3 har flera positiva egenskaper som ligger till grund
 
 Det finns dock andra dator- och anslutningsalternativ som kan ha fungerat lika bra. Arkadmaskinens chassi har exempelvis gott med utrymme 
 för att kunna använda en traditionell och mer kraftfull dator. Detta vore nödvändigt för mer krävande system. För att lösa utmaningen med 
-inkoppling av RFID-läsare, knappar och joystick så finns det s.k breakout boards som en lösning. Dessa boards kan tillhandahålla anslutningar 
-såsom RS232, SPI, I2C, realtidsklocka och vanlig GPIO. Ofta kommunicerar dessa kort med datorn via USB. Valet av RFID-läsaren baseras på att 
+inkoppling av kortläsare, knappar och joystick så finns det s.k breakout boards som en lösning. Dessa boards kan tillhandahålla anslutningar 
+såsom RS232, SPI, I2C, realtidsklocka och vanlig GPIO. Ofta kommunicerar dessa kort med datorn via USB. Valet av kortläsaren baseras på att 
 den är kompatibel med Högskolan Väst-korten, är kompatibel med datorn och att den fanns tillgänglig att köpa i butik. Hade projektet använt 
-en traditionell dator utan stöd för SPI så finns det andra RFID-läsare som kommunicerar seriellt via RS232. Alternativt använder man en 
+en traditionell dator utan stöd för SPI så finns det andra kortläsare som kommunicerar seriellt via RS232. Alternativt använder man en 
 breakout board med rätt anslutningar.
 
 \section{Server}\index{analys!Server}
 
 \subsection{Hemsida}\index{analys!Hemsida}
 
-Hemsidan med sitt stilrena utseende fick i navigeringsfältet ta med inspiration av arkadmaskinen genom att navigeringsknapparna blev 
-omvandlade till arkadknappar. Vi valde även att ha med flera olika underrubriker än de rent användbara som “logga in” och “registrera” 
+Vi valde att ha med flera olika underrubriker än de rent användbara som “logga in” och “registrera”. (se Figur \ref{fig_profilsida)}
 Detta då vi ansåg att det blev väldigt tomt utan, och utfyllnaden gav hemsidan en bättre känsla av att vara komplett med information om 
-oss, om arkadmaskiner generellt samt om spelet som vi hade med. En sak som ansågs vara viktigt, att kunna se Highscore på hemsidan. 
-Detta för att inspirera våra spelare att förbättra sig och kunna jämföra nya resultat mot deras äldre, samt att ha något att sträva 
-efter i form av att ligga på första plats.
+oss, om arkadmaskiner generellt samt om spelet som vi hade med. Hemsidan med sitt stilrena utseende fick i navigeringsfältet ta med inspiration av arkadmaskinen genom att navigeringsknapparna blev 
+omvandlade till arkadknappar. 
 
 \begin{figure}[h]
 \centering\includegraphics[width=\textwidth]{profil}
@@ -419,10 +407,13 @@ efter i form av att ligga på första plats.
 \label{fig_profilsida}
 \end{figure}
 
+En sak som ansågs vara viktigt, att kunna se highscore (se Figur \ref{fig_highscore}) på hemsidan. Detta för att inspirera våra spelare att förbättra sig och kunna
+jämföra nya resultat mot deras äldre, samt att ha något att sträva efter i form av att ligga på första plats.
+
 \begin{figure}[!h]
-\centering\includegraphics[width=\textwidth]{support}
-\caption{Supportsida för diverse frågor är en av flikarna på hemsidan}
-\label{fig_support}
+\centering\includegraphics[width=\textwidth]{highscore}
+\caption{Highscore lista på hemsidan}
+\label{fig_highscore}
 \end{figure}
 
 Vi valde att köpa domännamnet arkadprojekt.se då vi hittade detta till ett billigt pris, ett väl passande namn. Hade vi inte hittat
