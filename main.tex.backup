@@ -113,35 +113,56 @@
 %	CHAPTER 1
 %----------------------------------------------------------------------------------------
 
-\chapterimage{chapter_head_2.pdf} % Chapter heading image
+\chapterimage{tyrian_header.jpg} % Chapter heading image
 
 \chapter{Introduktion}
 
 \section{Bakgrund}\index{Bakgrund}
-Vi påbörjade en kurs som heter Praktisk datateknik där vi fick möjlighet att själva välja vilket projektarbete vi ville göra.
-Vår grupp bestod av sex personer och vi enades om att bygga en arkadmaskin. Till en början funderade vi på att göra en med litet 
-kabinett som skulle stå på ett bord för att komma upp i högre höjd men vi kom snabbt fram till att vi ville göra en i full storlek, 
-ca 170 cm. Det material som valdes var 19mm MDF skiva, plexiglas samt regel och detta har Karl Hedin i Vänersborg sponsrat oss med. 
-En fundering/ett problem vi hade var hur vi skulle såga ut alla delar perfekt utifrån vår CAD ritning då ingen av oss hade tillgång 
-till de verktyg eller utrymme som krävdes. Detta löstes genom att Magnus Åbergsgymnasiets (MÅG) byggprogram tillfrågades och genom deras 
-kompetens fick vi delarna precis så som vi ville ha dem. 
-\bigskip
+Vi påbörjade en kurs som heter Praktisk datateknik där vi fick möjlighet att själva välja vilket projektarbete vi ville göra. Vår grupp
+bestod av sex personer som enades om att bygga en arkadmaskin. Idén var att bygga en arkadmaskin där studenter på högskolan kunde spela 
+på ett enkelt sätt genom att använda sina Högskolan Väst-kort. Dessa kort används bland annat för att komma in och ut genom dörrar i 
+byggnaderna och låna böcker. För att kunna genomföra idén med betalning med studenternas kort krävdes det att kortläsaren kunde läsa 
+RFID-chippet på samma frekvens som korten är inställda på och även kunna skicka information till en extern server.
 
-Det vi även behövde ta ställning till var vilken typ av spel vi skulle använda oss av. Då vi hade planerat att använda en RFID-läsare 
-för att kunna ta betalt av potentiella spelare kom vi fram till att det fick bli ett open-source spel. Detta gjorde att vi inte behövde 
-ta hänsyn till olika spelrättigheter. Spelet som valdes heter Tyrian och blev 2004 tillgängligt som freeware. Spelaren styr ett rymdskepp 
-utrustat med olika skjutvapen och ska skjuta fiender och samla poäng och power-ups i sann arkad anda.
-\bigskip
+På den externa servern skulle hantering av spelarprofiler, registrering av användare och kredithanteringen skötas för att kunna spela på arkadmaskinen
+samt att skicka information som att spelet skall öppnas på arkaden när det finns tillräckligt med krediter hos spelaren. Ett annat mål 
+var att om en spelare inte var registrerad eller hade krediter för att kunna spela skulle det visas en QR-kod som kan skannas och som 
+tar spelaren till hemsidans registreringssida alternativt till profilsidan för att fylla på krediter om man redan är registrerad. 
 
-Studenter på Högskolan Väst är målgruppen för detta projektarbete med fokus på deras studentkort som används för att komma in och ut genom 
-dörrar i byggnaderna och låna böcker. För att kunna genomföra iden med betalning genom studenternas kort krävdes det att RFID-läsaren kunde 
-läsa på samma frekvens som korten är inställda på och även kunna skicka information till en extern server. På den externa servern sköttes 
-hanteringen av spelarprofiler, registrera användare, möjlighet att öka krediter för att kunna spela på arkadmaskinen samt att skicka 
-information som att spelet skall öppnas på arkaden när det finns tillräckligt med krediter hos spelaren. Ett annat mål var att om en 
-spelare inte var registrerad eller hade krediter för att kunna spela skall det visas en QR-kod som kan skannas och tar spelaren antingen 
-direkt till hemsidans registreringssida alternativt till profilsidan för att fylla på krediter.
+Projektet behövde ta ställning till vilken typ av spel som kunde användas. Då vi hade planerat att använda en kortläsare för att kunna 
+ta betalt av potentiella spelare kom vi fram till att det fick bli ett open-source spel. Detta gjorde att vi inte behövde ta hänsyn till
+olika spelrättigheter. Spelet som valdes heter Tyrian och blev tillgängligt som freeware 2004. Spelaren styr ett rymdskepp utrustat med 
+olika skjutvapen och ska skjuta fiender och samla poäng och power-ups i sann arkad anda.
+
+Till en början funderade vi på att designa arkadmaskinen med litet kabinett som skulle stå på ett bord för att komma upp i högre höjd
+men vi kom snabbt fram till att vi ville göra en i full storlek, ca 170 cm högt. Det material som valdes var 19 mm MDF skiva, plexiglas
+samt regel och detta har Karl Hedin i Vänersborg sponsrat oss med. En fundering/ett problem vi hade var hur vi skulle såga ut alla delar
+perfekt utifrån vår CAD ritning då ingen av oss hade tillgång till de verktyg eller utrymme som krävdes. Detta löstes genom att Magnus
+Åbergsgymnasiets (MÅG) byggprogram tillfrågades och genom deras kompetens fick vi delarna precis så som vi ville ha dem.
 
 \section{Systembeskrivning}\index{Systembeskrivning}
+\subsection{Användning}\index{system!Användning}
+Användaren börjar med att skanna sitt Högskolan Väst-kort på framsidan av arkadmaskinen. Första gången kortet skannas så visas ett 
+meddelande om att registrering krävs innan man får spela och en QR-kod presenteras. Genom att skanna koden med sin smartphone öppnas 
+hemsidan arkadprojekt.se som är kopplad till projektet. Där skapar man sitt konto och kan sedan ladda på krediter på sin profilsida. 
+När kortet skannas på arkadmaskinen nästa gång startas spelet Tyrian. Spelet fortgår tills game over eller om krediterna tar slut. 
+Då avslutas spelet och startsidan på arkadmaskinen visas igen. Om spelaren saknar krediter på kontot visas information om detta och 
+genom att gå in på sin spelarprofil är det enkelt att fylla på mer. Därefter går det att spela igen.
+
+\subsection{Arkitektur}\index{system!Arkitektur}
+Arkadmaskinen består av flera entiteter som tillsammans skapar arkadsystemet. Den fysiska vyn i figur XY visar informationsflödet 
+mellan dessa entiteter. Datorn Raspberry Pi kör kontinuerligt ett pythonscript som läser data från Högskolan Väst-kortet via kortläsaren. 
+När kort-ID och kommunicerar sedan med ett webAPI för att kontrollera huruvida kortet finns registrerat i systemet eller ej. För 
+icke-registrerade kort genereras en QR-kod för användaren som leder till hemsidan som ligger på webbservern. Där kan användaren 
+registrera sig och ladda på krediter. Nu finns användarinformation och kopplat kort-ID lagrat i databasen. För registrerade kort med 
+krediter körs spelet och datorn tolkar signaler från knappar och joystick. Gränssnittet mellan användare och arkadmaskin är skärmen 
+och högtalarna.
+
+\begin{figure}[!h]
+\centering\includegraphics[width=.5\textwidth]{physicalview}
+\caption{Fysisk vy över Arkadmaskinens entiteter}
+\label{fig_physview}
+\end{figure}
 
 %----------------------------------------------------------------------------------------
 %	CHAPTER 2
@@ -160,6 +181,7 @@ frontpanel, kontrollerbräda och den liggande brädan under kontrollerbrädan an
 Kvartsstaven användes för att skapa en snyggare övergång mellan skärmen och kontrollbrädans kanter.
 
 \begin{table}[h!]
+\resizebox{\textwidth}{!}{%
 \centering
 \begin{tabular}{ ||c|c|c|| } 
  \hline
@@ -175,7 +197,7 @@ Kvartsstaven användes för att skapa en snyggare övergång mellan skärmen och
  Skruv & Flatstifthylsor & \\
  Handtag & & \\
  \hline
-\end{tabular}
+\end{tabular}}
 \caption{Material som användes}
 \label{table_material}
 \end{table}
@@ -289,8 +311,9 @@ poäng spelaren fick, hur länge spelet pågick med mera. Nedan i tabell XX för
 
 \clearpage\newpage
 
-\begin{table}{htb}
+\begin{table}
 \centering
+\resizebox{\textwidth}{!}{%
 \begin{tabular}{ ||l|l|l|l|| } 
  \hline
  \multicolumn{2}{||c|}{Player} & \multicolumn{2}{|c||}{Highscore}  \\
@@ -306,14 +329,15 @@ poäng spelaren fick, hur länge spelet pågick med mera. Nedan i tabell XX för
  email & epost & & \\
  credits & antal coins & & \\
  \hline\hline
-\end{tabular}
+\end{tabular}}
 \caption{Förklaring av databastabell}
 \label{table_databas}
 \end{table}
 
 \subsection{Hemsida}\index{design!Hemsida}
 
-Vi köpte domännamnet arkadprojekt.se som hålls av Binero och för att bygga upp hemsidans design och funtioner användes HTML, CSS och PHP.\bigskip
+Vi köpte domännamnet arkadprojekt.se som hålls av Binero och för att bygga upp hemsidans design och funtioner användes HTML, CSS och PHP.
+
 \begin{figure}[h]
 \centering\includegraphics[width=\textwidth]{hemsida}
 \caption{Projektets hemsida}
@@ -411,64 +435,5 @@ samt ett sätt att se till att viktig information eller dylikt kom ut utan att d
 eller glöms av.
 
 Som helhet har projektet gått bra. Vi har löst uppkomna problem under arbetets gång och fått ut en fullt fungerade arkadmaskin. 
-
-
-\chapter{Presenting Information}
-
-\section{Table}\index{Table}
-
-\begin{table}[h]
-\centering
-\begin{tabular}{l l l}
-\toprule
-\textbf{Treatments} & \textbf{Response 1} & \textbf{Response 2}\\
-\midrule
-Treatment 1 & 0.0003262 & 0.562 \\
-Treatment 2 & 0.0015681 & 0.910 \\
-Treatment 3 & 0.0009271 & 0.296 \\
-\bottomrule
-\end{tabular}
-\caption{Table caption}
-\end{table}
-
-%------------------------------------------------
-
-\section{Figure}\index{Figure}
-
-\begin{figure}[h]
-\centering\includegraphics[scale=0.5]{placeholder}
-\caption{Figure caption}
-\end{figure}
-
-%----------------------------------------------------------------------------------------
-%	BIBLIOGRAPHY
-%----------------------------------------------------------------------------------------
-
-\chapter*{Bibliography}
-\addcontentsline{toc}{chapter}{\textcolor{ocre}{Bibliography}}
-
-%------------------------------------------------
-
-\section*{Articles}
-\addcontentsline{toc}{section}{Articles}
-\printbibliography[heading=bibempty,type=article]
-
-%------------------------------------------------
-
-\section*{Books}
-\addcontentsline{toc}{section}{Books}
-\printbibliography[heading=bibempty,type=book]
-
-%----------------------------------------------------------------------------------------
-%	INDEX
-%----------------------------------------------------------------------------------------
-
-\cleardoublepage
-\phantomsection
-\setlength{\columnsep}{0.75cm}
-\addcontentsline{toc}{chapter}{\textcolor{ocre}{Index}}
-\printindex
-
-%----------------------------------------------------------------------------------------
 
 \end{document}
