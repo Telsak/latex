@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2017.12.28)  9 JAN 2018 14:36
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2017.12.28)  9 JAN 2018 14:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1865,7 +1865,7 @@ Package babel Info: Redefining swedish shorthand "|
 (babel)             in language  on input line 119.
 Package babel Info: Redefining swedish shorthand "~
 (babel)             in language  on input line 119.
-<Pictures/tyrian_header.jpg, id=95, 1112.155pt x 556.0775pt>
+<Pictures/tyrian_header.jpg, id=92, 1112.155pt x 556.0775pt>
 File: Pictures/tyrian_header.jpg Graphic file (type jpg)
 
 <use Pictures/tyrian_header.jpg>
@@ -1891,7 +1891,7 @@ Package babel Info: Redefining swedish shorthand "|
 Package babel Info: Redefining swedish shorthand "~
 (babel)             in language  on input line 144.
 
-<Pictures/physicalview.png, id=101, 465.74pt x 353.32pt>
+<Pictures/physicalview.png, id=98, 465.74pt x 353.32pt>
 File: Pictures/physicalview.png Graphic file (type png)
 
 <use Pictures/physicalview.png>
@@ -1911,7 +1911,7 @@ Package babel Info: Redefining swedish shorthand "|
 (babel)             in language  on input line 175.
 Package babel Info: Redefining swedish shorthand "~
 (babel)             in language  on input line 175.
-<Pictures/headercode.png, id=109, 1885.0425pt x 942.52126pt>
+<Pictures/headercode.png, id=106, 1885.0425pt x 942.52126pt>
 File: Pictures/headercode.png Graphic file (type png)
 
 <use Pictures/headercode.png>
@@ -1934,7 +1934,7 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 180.
 
-<Pictures/materialdelar.png, id=113, 405.515pt x 542.025pt>
+<Pictures/materialdelar.png, id=110, 405.515pt x 542.025pt>
 File: Pictures/materialdelar.png Graphic file (type png)
 
 <use Pictures/materialdelar.png>
@@ -1960,19 +1960,19 @@ Package babel Info: Redefining swedish shorthand "|
 Package babel Info: Redefining swedish shorthand "~
 (babel)             in language  on input line 227.
 
-<Pictures/rpi-arkad.PNG, id=123, 565.36218pt x 407.27156pt>
+<Pictures/rpi-arkad.PNG, id=120, 565.36218pt x 407.27156pt>
 File: Pictures/rpi-arkad.PNG Graphic file (type png)
 
 <use Pictures/rpi-arkad.PNG>
 Package pdftex.def Info: Pictures/rpi-arkad.PNG used on input line 238.
 (pdftex.def)             Requested size: 169.00916pt x 121.74739pt.
 
-<Pictures/piwithrfid.png, id=124, 327.2225pt x 236.885pt>
-File: Pictures/piwithrfid.png Graphic file (type png)
+<Pictures/piwithrfid.jpg, id=121, 753.81625pt x 544.0325pt>
+File: Pictures/piwithrfid.jpg Graphic file (type jpg)
 
-<use Pictures/piwithrfid.png>
-Package pdftex.def Info: Pictures/piwithrfid.png used on input line 244.
-(pdftex.def)             Requested size: 169.00916pt x 122.34955pt.
+<use Pictures/piwithrfid.jpg>
+Package pdftex.def Info: Pictures/piwithrfid.jpg used on input line 244.
+(pdftex.def)             Requested size: 169.00916pt x 121.97037pt.
 Package babel Info: Redefining swedish shorthand "|
 (babel)             in language  on input line 256.
 Package babel Info: Redefining swedish shorthand "~
@@ -1982,8 +1982,8 @@ Package babel Info: Redefining swedish shorthand "|
 Package babel Info: Redefining swedish shorthand "~
 (babel)             in language  on input line 256.
  [7 <./Pictures/materialdelar.png> <./Pictures/rpi-arkad.PNG> <./Pictures/piwit
-hrfid.png>]
-<Pictures/gpio.png, id=136, 709.65125pt x 367.3725pt>
+hrfid.jpg>]
+<Pictures/gpio.png, id=132, 709.65125pt x 367.3725pt>
 File: Pictures/gpio.png Graphic file (type png)
  <use Pictures/gpio.png>
 Package pdftex.def Info: Pictures/gpio.png used on input line 258.
@@ -1993,7 +1993,7 @@ Package babel Info: Redefining swedish shorthand "|
 Package babel Info: Redefining swedish shorthand "~
 (babel)             in language  on input line 263.
 
-<Pictures/mainloop.png, id=138, 432.61626pt x 446.66875pt>
+<Pictures/mainloop.png, id=134, 432.61626pt x 446.66875pt>
 File: Pictures/mainloop.png Graphic file (type png)
 
 <use Pictures/mainloop.png>
@@ -2012,14 +2012,18 @@ Package babel Info: Redefining swedish shorthand "|
 Package babel Info: Redefining swedish shorthand "~
 (babel)             in language  on input line 282.
  [8 <./Pictures/gpio.png> <./Pictures/mainloop.png>] <Pictures/opentyrian.png, 
-id=148, 908.39375pt x 390.45876pt>
+id=144, 908.39375pt x 390.45876pt>
 File: Pictures/opentyrian.png Graphic file (type png)
 
 <use Pictures/opentyrian.png>
 Package pdftex.def Info: Pictures/opentyrian.png used on input line 284.
 (pdftex.def)             Requested size: 426.79135pt x 183.45009pt.
 
-<Pictures/databas.png, id=149, 369.38pt x 217.613pt>
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 284--285
+ [][] 
+ []
+
+<Pictures/databas.png, id=145, 369.38pt x 217.613pt>
 File: Pictures/databas.png Graphic file (type png)
 
 <use Pictures/databas.png>
@@ -2046,12 +2050,17 @@ Package babel Info: Redefining swedish shorthand "|
 (babel)             in language  on input line 336.
 Package babel Info: Redefining swedish shorthand "~
 (babel)             in language  on input line 336.
- <Pictures/hemsida.png, id=162, 658.46pt x 335.2525pt>
+ <Pictures/hemsida.png, id=158, 658.46pt x 335.2525pt>
 File: Pictures/hemsida.png Graphic file (type png)
 
 <use Pictures/hemsida.png>
 Package pdftex.def Info: Pictures/hemsida.png used on input line 345.
 (pdftex.def)             Requested size: 426.79135pt x 217.3028pt.
+
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 345--346
+[][] 
+ []
+
 Package babel Info: Redefining swedish shorthand "|
 (babel)             in language  on input line 354.
 Package babel Info: Redefining swedish shorthand "~
@@ -2060,7 +2069,7 @@ Package babel Info: Redefining swedish shorthand "|
 (babel)             in language  on input line 354.
 Package babel Info: Redefining swedish shorthand "~
 (babel)             in language  on input line 354.
- [10
+[10
 
  <./Pictures/hemsida.png>]
 Kapitel 3.
@@ -2077,7 +2086,7 @@ Package babel Info: Redefining swedish shorthand "|
 Package babel Info: Redefining swedish shorthand "~
 (babel)             in language  on input line 356.
 
-<Pictures/kontrollpanel.jpg, id=171, 4047.12pt x 1537.745pt>
+<Pictures/kontrollpanel.jpg, id=167, 4047.12pt x 1537.745pt>
 File: Pictures/kontrollpanel.jpg Graphic file (type jpg)
 
 <use Pictures/kontrollpanel.jpg>
@@ -2114,12 +2123,12 @@ Package babel Info: Redefining swedish shorthand "|
 (babel)             in language  on input line 399.
 Package babel Info: Redefining swedish shorthand "~
 (babel)             in language  on input line 399.
- <Pictures/profil.png, id=180, 695.59875pt x 424.58624pt>
+ <Pictures/profil.png, id=176, 695.59875pt x 424.58624pt>
 File: Pictures/profil.png Graphic file (type png)
 
 <use Pictures/profil.png>
 Package pdftex.def Info: Pictures/profil.png used on input line 407.
-(pdftex.def)             Requested size: 426.79135pt x 260.50676pt.
+(pdftex.def)             Requested size: 384.1096pt x 234.45607pt.
 Package babel Info: Redefining swedish shorthand "|
 (babel)             in language  on input line 414.
 Package babel Info: Redefining swedish shorthand "~
@@ -2129,12 +2138,12 @@ Package babel Info: Redefining swedish shorthand "|
 Package babel Info: Redefining swedish shorthand "~
 (babel)             in language  on input line 414.
  [12 <./Pictures/profil.png>]
-<Pictures/highscore.png, id=188, 765.86125pt x 632.3625pt>
+<Pictures/highscore.png, id=184, 765.86125pt x 632.3625pt>
 File: Pictures/highscore.png Graphic file (type png)
 
 <use Pictures/highscore.png>
 Package pdftex.def Info: Pictures/highscore.png used on input line 416.
-(pdftex.def)             Requested size: 426.79135pt x 352.40306pt.
+(pdftex.def)             Requested size: 384.1096pt x 317.15503pt.
 Package babel Info: Redefining swedish shorthand "|
 (babel)             in language  on input line 432.
 Package babel Info: Redefining swedish shorthand "~
@@ -2174,25 +2183,22 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 35492 strings out of 493013
- 655617 string characters out of 6135681
+ 35491 strings out of 493013
+ 655601 string characters out of 6135681
  1204390 words of memory out of 5000000
  38280 multiletter control sequences out of 15000+600000
  77995 words of font info for 214 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,11n,57p,10507b,1327s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{subsection.1.2.1} has been referenced but does no
-t exist, replaced by a fixed one
-
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/urw/avantgar/uagd8a.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/urw/avantgar/uagk8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/tim
-es/utmr8a.pfb>
-Output written on main.pdf (14 pages, 13098022 bytes).
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/urw/avantgar/uagd8a.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/urw/avantgar/uagk8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/t
+imes/utmr8a.pfb>
+Output written on main.pdf (14 pages, 13097504 bytes).
 PDF statistics:
- 284 PDF objects out of 1000 (max. 8388607)
- 211 compressed objects within 3 object streams
- 51 named destinations out of 1000 (max. 500000)
+ 280 PDF objects out of 1000 (max. 8388607)
+ 209 compressed objects within 3 object streams
+ 50 named destinations out of 1000 (max. 500000)
  43757 words of extra memory for PDF output out of 51595 (max. 10000000)
 

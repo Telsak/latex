@@ -162,7 +162,7 @@ krediter körs spelet och datorn tolkar signaler från knappar och joystick. Gr�
 och högtalarna.
 
 \begin{figure}[!h]
-\centering\includegraphics[width=.5\textwidth]{physicalview}
+\centering\fbox{\includegraphics[width=.5\textwidth]{physicalview}}
 \caption{Fysisk vy över Arkadmaskinens entiteter}
 \label{fig_physview}
 \end{figure}
@@ -207,7 +207,7 @@ skapa en snyggare övergång mellan skärmen och kontrollbrädans kanter. Tabell
 
 \begin{wrapfigure}[17]{R}{0.35\textwidth}
   \begin{center}
-    \includegraphics[width=0.3\textwidth]{materialdelar}
+    \fbox{\includegraphics[width=0.3\textwidth]{materialdelar}}
   \end{center}
   \caption{Det utsågade materialet}
   \label{fig_material}
@@ -226,9 +226,9 @@ så beslutet blev att skära ut “NTK ARCADE” i designfolie och sätta mellan
 \section{Hårdvara och mjukvara}\index{design!Dator och kortläsare}
 \subsection{Dator och kortläsare}\index{design!Översikt}
 Enkortsdatorn Raspberry Pi 3 valdes som hårdvaruplattform i projektet. Den främsta anledningen är att datorn erbjuder flertalet
-externa anslutningsmöjligheter, vilket var en förutsättning för att kunna koppla in kortläsare, knappar och joystick (se Figur \ref{fig_knappar}). Datorn 
+externa anslutningsmöjligheter, vilket var en förutsättning för att kunna koppla in kortläsare, knappar och joystick, se Figur \ref{fig_knappar}. Datorn 
 erbjuder också god prestanda för enklare 2D- och 3D-applikationer samt att energiförbrukningen är låg. Kortläsaren i projektet 
-bestod av en RFID-läsare med kretsen RC-522 (se Figur \ref{fig_pirfid}). Valet baserades på att kretsen skulle stödja Högskolan Väst-korten, som är av typen 
+bestod av en RFID-läsare med kretsen RC-522, se Figur \ref{fig_pirfid}. Valet baserades på att kretsen skulle stödja Högskolan Väst-korten, som är av typen 
 MIFARE och använder 13,56MHz frekvens för kommunikation. Det var också viktigt att kortläsaren var kompatibel med datorn i termer 
 av drivrutinsstöd och fysisk anslutning.
 
@@ -281,7 +281,7 @@ fil med namn QUIT\_GAME\_TRUE som pythonskriptet kontinuerligt kontrollerar om d
 filen stängs spelet av helt istället för att spelaren skulle komma tillbaka till spelets huvudmeny.
 
 \begin{figure}[!h]
-\centering\includegraphics[width=\textwidth]{opentyrian}
+\fbox{\includegraphics[width=\textwidth]{opentyrian}
 \caption{Ändring av game\_menu.c för att inaktivera options-menyn och skapa fil vid avslut}
 \label{fig_opentyrian}
 \end{figure}
@@ -302,7 +302,7 @@ trycka i menyn.
 
 Databasen som används är MariaDB\footnote{[https://mariadb.org/about/}. Kommunikationen mellan arkadmaskinen och databasen 
 sker via ett webAPI skrivet i PHP. På detta sätt blir systemet skalbart och ändringar kan lätt göras utan att behöva göra 
-ändringar direkt på arkadmaskinen. Databasen är uppbyggd av två tabeller (se Figur \ref{fig_databas}): player och highscore.
+ändringar direkt på arkadmaskinen. Databasen är uppbyggd av två tabeller: player och highscore, se Figur \ref{fig_databas}.
 \clearpage
 I player sparas information om spelare såsom namn, epost med mera. I highscore sparas information efter varje spelrunda som
 har gjorts med hur mycket poäng spelaren fick, hur länge spelet pågick med mera. Nedan i tabell \ref{table_databas} förklaras de olika fälten
@@ -358,10 +358,10 @@ Valet att bygga ett större kabinett grundades i att vi förmodligen bara skulle
 rejält och så likt de klassiska arkadmaskinerna som möjligt. När det kommer till utsågning av material och att det blev elever 
 på MÅG som gjorde det var för att ingen i gruppen har större erfarenhet kring detta och vi ville ha delarna så perfekta det 
 bara gick. Att det blev MDF som material grundades i att de flesta ritningar och guider använde MDF och det var det bästa 
-alternativet. Att vi gjorde valet med att sätta plexiglas på kontrollbrädan (se Figur \ref{fig_kontrollpanel} var för att det gav ett mer autentiskt intryck.
+alternativet. Att vi gjorde valet med att sätta plexiglas på kontrollbrädan var för att det gav ett mer autentiskt intryck, se Figur \ref{fig_kontrollpanel}. 
 
 \begin{figure}[h]
-\centering\includegraphics[width=.6\textwidth]{kontrollpanel}
+\centering\fbox{\includegraphics[width=.6\textwidth]{kontrollpanel}}
 \caption{Kontrollpanelen}
 \label{fig_kontrollpanel}
 \end{figure}
@@ -398,22 +398,22 @@ breakout board med rätt anslutningar.
 
 \subsection{Hemsida}\index{analys!Hemsida}
 
-Vi valde att ha med flera olika underrubriker än de rent användbara som “logga in” och “registrera”. (se Figur \ref{fig_profilsida})
+Vi valde att ha med flera olika underrubriker än de rent användbara som “logga in” och “registrera”, se Figur \ref{fig_profilsida}.
 Detta då vi ansåg att det blev väldigt tomt utan, och utfyllnaden gav hemsidan en bättre känsla av att vara komplett med information om 
 oss, om arkadmaskiner generellt samt om spelet som vi hade med. Hemsidan med sitt stilrena utseende fick i navigeringsfältet ta med inspiration av arkadmaskinen genom att navigeringsknapparna blev 
 omvandlade till arkadknappar. 
 
 \begin{figure}[h]
-\centering\includegraphics[width=\textwidth]{profil}
+\centering\includegraphics[width=.9\textwidth]{profil}
 \caption{Inloggad på hemsidan, profilsidan}
 \label{fig_profilsida}
 \end{figure}
 
-En sak som ansågs vara viktigt, att kunna se highscore (se Figur \ref{fig_highscore}) på hemsidan. Detta för att inspirera våra spelare att förbättra sig och kunna
+En sak som ansågs vara viktigt, att kunna se highscore på hemsidan, se Figur \ref{fig_highscore}. Detta för att inspirera våra spelare att förbättra sig och kunna
 jämföra nya resultat mot deras äldre, samt att ha något att sträva efter i form av att ligga på första plats.
 
 \begin{figure}[!h]
-\centering\includegraphics[width=\textwidth]{highscore}
+\centering\includegraphics[width=.9\textwidth]{highscore}
 \caption{Highscore lista på hemsidan}
 \label{fig_highscore}
 \end{figure}
