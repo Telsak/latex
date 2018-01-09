@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2017.12.28)  9 JAN 2018 20:43
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2017.12.28)  9 JAN 2018 20:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2180,11 +2180,11 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 35502 strings out of 493013
- 655833 string characters out of 6135681
+ 35499 strings out of 493013
+ 655809 string characters out of 6135681
  1204410 words of memory out of 5000000
  38291 multiletter control sequences out of 15000+600000
- 80668 words of font info for 214 fonts, out of 8000000 for 9000
+ 80538 words of font info for 212 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,11n,57p,10507b,1327s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
@@ -2193,7 +2193,7 @@ f-dist/fonts/type1/urw/avantgar/uagd8a.pfb></usr/share/texlive/texmf-dist/fonts
 /type1/urw/avantgar/uagk8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/t
 imes/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb
 >
-Output written on main.pdf (14 pages, 8186184 bytes).
+Output written on main.pdf (14 pages, 8186182 bytes).
 PDF statistics:
  274 PDF objects out of 1000 (max. 8388607)
  206 compressed objects within 3 object streams
