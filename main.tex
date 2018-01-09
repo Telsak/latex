@@ -60,7 +60,7 @@
 \begin{tikzpicture}[remember picture,overlay]
 \node[inner sep=0pt] (background) at (current page.center) {\includegraphics[width=\paperwidth]{cabinet}};
 \draw (current page.center) node [fill=black,fill opacity=0.8,text opacity=1,text=white,inner sep=1cm]{\Huge\centering\bfseries\sffamily\parbox[c][][t]{\paperwidth}{\centering Arkadprojekt\\[15pt] % Book title
-{\Large med RFID avläsning}\\[20pt] % Subtitle
+{\Large med RFID-avläsning}\\[20pt] % Subtitle
 {\normalsize Simon Olofsson, Olof Ivarsson, Madeleine Karlsson, Patrick Lundin, Sara Andersson, Emrik Olsson}}}; % Author name
 \end{tikzpicture}
 \vfill
@@ -74,7 +74,7 @@
 ~\vfill
 \thispagestyle{empty}
 
-\noindent Revision history: v1.0 - Mon, Jan 8 2018.
+\noindent Revisions historik: v1.0 - Tis, Jan 9 2018.
 
 %\noindent Copyright \copyright\ 2013 John Smith\\ % Copyright notice
 
@@ -162,7 +162,7 @@ krediter körs spelet och datorn tolkar signaler från knappar och joystick. Gr�
 och högtalarna.
 
 \begin{figure}[!h]
-\centering\fbox{\includegraphics[width=.5\textwidth]{physicalview}}
+\centering\includegraphics[width=.5\textwidth]{physicalview}
 \caption{Fysisk vy över Arkadmaskinens entiteter}
 \label{fig_physview}
 \end{figure}
@@ -185,7 +185,8 @@ frontpanel, kontrollbräda och den liggande brädan under kontrollbrädan använ
 skapa en snyggare övergång mellan skärmen och kontrollbrädans kanter. Tabell \ref{table_material} listar allt material och Figur \ref{fig_material} är de utsågade delarna.
 
 \begin{table}[h]
-\centering\resizebox{.9\textwidth}{!}{%
+\centering
+\caption{Material som användes}\resizebox{.9\textwidth}{!}{%
 \begin{tabular}{ ||c|c|c|| } 
  \hline
  Chassi & Hårdvara & Övrigt \\ [0.5ex]
@@ -201,7 +202,6 @@ skapa en snyggare övergång mellan skärmen och kontrollbrädans kanter. Tabell
  Handtag & & \\
  \hline
 \end{tabular}}
-\caption{Material som användes}
 \label{table_material}
 \end{table}
 
@@ -311,7 +311,7 @@ i tabellerna mer noggrant.
 %\clearpage\newpage
 
 \begin{table}[!h]
-\centering
+\centering\caption{Förklaring av databastabell}
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{ ||l|l|l|l|| } 
  \hline
@@ -329,7 +329,6 @@ i tabellerna mer noggrant.
  credits & antal coins & & \\
  \hline\hline
 \end{tabular}}
-\caption{Förklaring av databastabell}
 \label{table_databas}
 \end{table}
 
@@ -415,7 +414,7 @@ jämföra nya resultat mot deras äldre, samt att ha något att sträva efter i 
 
 \begin{figure}[!h]
 \centering\includegraphics[width=.9\textwidth]{highscore}
-\caption{Highscore lista på hemsidan}
+\caption{Highscore-lista på hemsidan}
 \label{fig_highscore}
 \end{figure}
 

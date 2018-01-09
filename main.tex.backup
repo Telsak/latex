@@ -74,7 +74,7 @@
 ~\vfill
 \thispagestyle{empty}
 
-\noindent Revision history: v1.0 - Mon, Jan 8 2018.
+\noindent Revisions historik: v1.0 - Tis, Jan 9 2018.
 
 %\noindent Copyright \copyright\ 2013 John Smith\\ % Copyright notice
 
@@ -162,7 +162,7 @@ krediter körs spelet och datorn tolkar signaler från knappar och joystick. Gr�
 och högtalarna.
 
 \begin{figure}[!h]
-\centering\fbox{\includegraphics[width=.5\textwidth]{physicalview}}
+\centering\includegraphics[width=.5\textwidth]{physicalview}
 \caption{Fysisk vy över Arkadmaskinens entiteter}
 \label{fig_physview}
 \end{figure}
@@ -185,7 +185,7 @@ frontpanel, kontrollbräda och den liggande brädan under kontrollbrädan använ
 skapa en snyggare övergång mellan skärmen och kontrollbrädans kanter. Tabell \ref{table_material} listar allt material och Figur \ref{fig_material} är de utsågade delarna.
 
 \begin{table}[h]
-\centering\resizebox{.9\textwidth}{!}{%
+\centering\caption{test}\resizebox{.9\textwidth}{!}{%
 \begin{tabular}{ ||c|c|c|| } 
  \hline
  Chassi & Hårdvara & Övrigt \\ [0.5ex]
@@ -201,7 +201,7 @@ skapa en snyggare övergång mellan skärmen och kontrollbrädans kanter. Tabell
  Handtag & & \\
  \hline
 \end{tabular}}
-\caption{Material som användes}
+%\caption{Material som användes}
 \label{table_material}
 \end{table}
 
@@ -350,9 +350,9 @@ skulle vara något med maskinen eller spelet som inte skulle fungera. Hemsidan �
 %----------------------------------------------------------------------------------------
 %	CHAPTER 3
 %----------------------------------------------------------------------------------------
-
-\chapter{Designanalys}
 \chapterimage{analys.jpg}
+\chapter{Designanalys}
+
 
 \section{Chassi}\index{analys!Chassi}
 Valet att bygga ett större kabinett grundades i att vi förmodligen bara skulle göra detta en gång och att vi ville göra det 
@@ -429,9 +429,9 @@ naturliga alternativet. Detta även för att det i gruppen fanns kunskaper sedan
 %----------------------------------------------------------------------------------------
 %	CHAPTER 4
 %----------------------------------------------------------------------------------------
-
+\chapterimage{gruppen.png} % Chapter heading image
 \chapter{Projektreflektioner}
-\chapterimage{chapter_head_1.pdf} % Chapter heading image
+
 
 Gruppens reflektioner kring arbetet är att vi som grupp haft en god kontakt sinsemellan med avstämningsmöten en gång i veckan, nära 
 arbete och en messenger konversation som användes i form av intern kommunikation för gruppen.
@@ -440,8 +440,6 @@ Då vi var 6 personer delade vi upp arbetet enligt dess natur (hårdvara, mjukva
 på oss i mindre grupper. På så sätt fick vi alla ett bestämt ansvarsområde medan man fanns tillgänglig för att ge stöd åt en annan 
 grupp om det behövdes. Våra möten blev mer avstämningar för att kontrollera och rapportera statusen för de diverse ansvarsområdena 
 samt ett sätt att se till att viktig information eller dylikt kom ut utan att det sägs snabbt i korridoren och därmed lätt missas 
-eller glöms av.
-
-Som helhet har projektet gått bra. Vi har löst uppkomna problem under arbetets gång och fått ut en fullt fungerade arkadmaskin. 
+eller glöms av. Som helhet har projektet gått bra. Vi har löst uppkomna problem under arbetets gång och fått ut en fullt fungerade arkadmaskin. 
 
 \end{document}
