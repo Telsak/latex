@@ -58,7 +58,7 @@
 \begingroup
 \thispagestyle{empty}
 \begin{tikzpicture}[remember picture,overlay]
-\node[inner sep=0pt] (background) at (current page.center) {\includegraphics[width=\paperwidth]{background}};
+\node[inner sep=0pt] (background) at (current page.center) {\includegraphics[width=\paperwidth]{cabinet}};
 \draw (current page.center) node [fill=black,fill opacity=0.8,text opacity=1,text=white,inner sep=1cm]{\Huge\centering\bfseries\sffamily\parbox[c][][t]{\paperwidth}{\centering Arkadprojekt\\[15pt] % Book title
 {\Large med RFID avläsning}\\[20pt] % Subtitle
 {\normalsize Simon Olofsson, Olof Ivarsson, Madeleine Karlsson, Patrick Lundin, Sara Andersson, Emrik Olsson}}}; % Author name
@@ -281,7 +281,7 @@ fil med namn QUIT\_GAME\_TRUE som pythonskriptet kontinuerligt kontrollerar om d
 filen stängs spelet av helt istället för att spelaren skulle komma tillbaka till spelets huvudmeny.
 
 \begin{figure}[!h]
-\fbox{\includegraphics[width=\textwidth]{opentyrian}
+\includegraphics[width=\textwidth]{opentyrian}
 \caption{Ändring av game\_menu.c för att inaktivera options-menyn och skapa fil vid avslut}
 \label{fig_opentyrian}
 \end{figure}
@@ -350,8 +350,9 @@ skulle vara något med maskinen eller spelet som inte skulle fungera. Hemsidan �
 %----------------------------------------------------------------------------------------
 %	CHAPTER 3
 %----------------------------------------------------------------------------------------
-
+\chapterimage{analys.jpg}
 \chapter{Designanalys}
+
 
 \section{Chassi}\index{analys!Chassi}
 Valet att bygga ett större kabinett grundades i att vi förmodligen bara skulle göra detta en gång och att vi ville göra det 
@@ -428,9 +429,9 @@ naturliga alternativet. Detta även för att det i gruppen fanns kunskaper sedan
 %----------------------------------------------------------------------------------------
 %	CHAPTER 4
 %----------------------------------------------------------------------------------------
-
+\chapterimage{gruppen.png} % Chapter heading image
 \chapter{Projektreflektioner}
-\chapterimage{chapter_head_1.pdf} % Chapter heading image
+
 
 Gruppens reflektioner kring arbetet är att vi som grupp haft en god kontakt sinsemellan med avstämningsmöten en gång i veckan, nära 
 arbete och en messenger konversation som användes i form av intern kommunikation för gruppen.
@@ -439,8 +440,6 @@ Då vi var 6 personer delade vi upp arbetet enligt dess natur (hårdvara, mjukva
 på oss i mindre grupper. På så sätt fick vi alla ett bestämt ansvarsområde medan man fanns tillgänglig för att ge stöd åt en annan 
 grupp om det behövdes. Våra möten blev mer avstämningar för att kontrollera och rapportera statusen för de diverse ansvarsområdena 
 samt ett sätt att se till att viktig information eller dylikt kom ut utan att det sägs snabbt i korridoren och därmed lätt missas 
-eller glöms av.
-
-Som helhet har projektet gått bra. Vi har löst uppkomna problem under arbetets gång och fått ut en fullt fungerade arkadmaskin. 
+eller glöms av. Som helhet har projektet gått bra. Vi har löst uppkomna problem under arbetets gång och fått ut en fullt fungerade arkadmaskin. 
 
 \end{document}
