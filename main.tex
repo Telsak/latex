@@ -160,8 +160,9 @@ Arkadmaskinen består av flera entiteter som tillsammans skapar arkadsystemet. D
 mellan dessa entiteter. Datorn Raspberry Pi kör kontinuerligt ett pythonscript som läser data från Högskolan Väst-kortet via kortläsaren. 
 När kort-ID är inläst kommunicerar datorn med ett webAPI för att kontrollera huruvida kortet finns registrerat i systemet eller ej. För 
 icke-registrerade kort genereras en QR-kod för användaren som leder till hemsidan som ligger på webbservern. Där kan användaren 
-registrera sig och ladda på krediter. Nu finns användarinformation och kopplat kort-ID lagrat i databasen. För registrerade kort med 
-krediter körs spelet och datorn tolkar signaler från knappar och joystick. Gränssnittet mellan användare och arkadmaskin är skärmen 
+registrera sig och ladda på krediter. Inläst kort-ID och användarinformation knyts nu ihop och lagras i databasen.
+%Nu finns användarinformation och kopplat kort-ID lagrat i databasen.
+För registrerade kort med krediter körs spelet och datorn tolkar signaler från knappar och joystick. Gränssnittet mellan användare och arkadmaskin är skärmen 
 och högtalarna.
 
 \begin{figure}[!h]
@@ -190,9 +191,9 @@ skapa en snyggare övergång mellan skärmen och kontrollbrädans kanter. Tabell
 \begin{table}[h]
 \centering
 \caption{Material som användes}\resizebox{.9\textwidth}{!}{%
-\begin{tabular}{ ||c|c|c|| } 
+\begin{tabular}{ ||c|c|c|| }
  \hline
- Chassi & Hårdvara & Övrigt \\ [0.5ex]
+ \textbf{Chassi} & \textbf{Hårdvara} & \textbf{Övrigt} \\ [0.5ex]
  \hline\hline
  2st MDF 19x1200x2400 mm & Raspberry Pi & Färg + penslar \\ 
  1st Regel 45x95x2700 mm & Arkadknappar 14st & Designfolie \\ 
@@ -318,9 +319,9 @@ i tabellerna mer noggrant.
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{ ||l|l|l|l|| } 
  \hline
- \multicolumn{2}{||c|}{Player} & \multicolumn{2}{|c||}{Highscore}  \\
+ \multicolumn{2}{||c|}{\textbf{Player}} & \multicolumn{2}{|c||}{\textbf{Highscore}}  \\
  \hline
- Fält & Förklaring & Fält & Förklaring \\
+ \textbf{Fält} & \textbf{Förklaring} & \textbf{Fält} & \textbf{Förklaring} \\
  \hline\hline
  pID & spelarens ID & hcID & highscore ID \\
  pCard & spelarens kortnummer (HV-kort) & pID & spelarens ID \\
