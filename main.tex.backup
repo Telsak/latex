@@ -366,8 +366,6 @@ breakout board med rätt anslutningar.
 
 \section{Server}\index{analys!Server}
 
-\subsection{Databas}\index{analys!Databas}
-
 \subsection{Hemsida}\index{analys!Hemsida}
 
 Hemsidan med sitt stilrena utseende fick i navigeringsfältet ta med inspiration av arkadmaskinen genom att navigeringsknapparna blev 
@@ -383,18 +381,37 @@ efter i form av att ligga på första plats.
 \label{fig_profilsida}
 \end{figure}
 
+\begin{figure}[!h]
+\centering\includegraphics[width=\textwidth]{support}
+\caption{Supportsida för diverse frågor är en av flikarna på hemsidan}
+\label{fig_support}
+\end{figure}
 
+Vi valde att köpa domännamnet arkadprojekt.se då vi hittade detta till ett billigt pris, ett väl passande namn. Hade vi inte hittat
+detta så var tanken att vi skulle använda oss av ett gratis domännamn som inte hade givit oss ett lika passande namn, samt att vi inte
+hade fått lika stor frihet i namnet som i den köpta utvalda domänen.  
+
+Anledningen till att PHP användes var för att vi använder oss av operativsystemet Linux på servern och då kändes detta som det mest 
+naturliga alternativet. Detta även för att det i gruppen fanns kunskaper sedan tidigare om användandet av PHP.
 
 %----------------------------------------------------------------------------------------
 %	CHAPTER 4
 %----------------------------------------------------------------------------------------
 
 \chapter{Projektreflektioner}
-
-\lipsum[1-7] % Dummy text
-
-
 \chapterimage{chapter_head_1.pdf} % Chapter heading image
+
+Gruppens reflektioner kring arbetet är att vi som grupp haft en god kontakt sinsemellan med avstämningsmöten en gång i veckan, nära 
+arbete och en messenger konversation som användes i form av intern kommunikation för gruppen.
+
+Då vi var 6 personer delade vi upp arbetet enligt dess natur (hårdvara, mjukvara, hemsida etc) och delade därefter upp ansvarsområdet 
+på oss i mindre grupper. På så sätt fick vi alla ett bestämt ansvarsområde medan man fanns tillgänglig för att ge stöd åt en annan 
+grupp om det behövdes. Våra möten blev mer avstämningar för att kontrollera och rapportera statusen för de diverse ansvarsområdena 
+samt ett sätt att se till att viktig information eller dylikt kom ut utan att det sägs snabbt i korridoren och därmed lätt missas 
+eller glöms av.
+
+Som helhet har projektet gått bra. Vi har löst uppkomna problem under arbetets gång och fått ut en fullt fungerade arkadmaskin. 
+
 
 \chapter{Presenting Information}
 

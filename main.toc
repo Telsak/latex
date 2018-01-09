@@ -8,6 +8,10 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {1.2}Systembeskrivning}{6}{section.1.2}
 \defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {1.2.1}Anv\IeC {\"a}ndning}{6}{subsection.1.2.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {1.2.2}Arkitektur}{6}{subsection.1.2.2}
+\defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {2}Design och implementering}{7}{chapter.2}
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {2.1}Chassi}{7}{section.2.1}
@@ -39,18 +43,4 @@
 \contentsline {subsection}{\numberline {3.3.1}Hemsida}{13}{subsection.3.3.1}
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {4}Projektreflektioner}{15}{chapter.4}
-\defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {5}Presenting Information}{16}{chapter.5}
-\defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.1}Table}{16}{section.5.1}
-\defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.2}Figure}{16}{section.5.2}
-\defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\leavevmode {\color {ocre}Bibliography}}{17}{chapter*.2}
-\defcounter {refsection}{0}\relax 
-\contentsline {section}{Articles}{17}{section*.3}
-\defcounter {refsection}{0}\relax 
-\contentsline {section}{Books}{17}{section*.4}
-\defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\leavevmode {\color {ocre}Index}}{19}{section*.5}
 \contentsfinish 

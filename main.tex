@@ -113,7 +113,7 @@
 %	CHAPTER 1
 %----------------------------------------------------------------------------------------
 
-\chapterimage{chapter_head_2.pdf} % Chapter heading image
+\chapterimage{tyrian_header.jpg} % Chapter heading image
 
 \chapter{Introduktion}
 
@@ -142,6 +142,22 @@ spelare inte var registrerad eller hade krediter för att kunna spela skall det 
 direkt till hemsidans registreringssida alternativt till profilsidan för att fylla på krediter.
 
 \section{Systembeskrivning}\index{Systembeskrivning}
+\subsection{Användning}\index{system!Användning}
+Användaren börjar med att skanna sitt Högskolan Väst-kort på framsidan av arkadmaskinen. Första gången kortet skannas så visas ett 
+meddelande om att registrering krävs innan man får spela och en QR-kod presenteras. Genom att skanna koden med sin smartphone öppnas 
+hemsidan arkadprojekt.se som är kopplad till projektet. Där skapar man sitt konto och kan sedan ladda på krediter på sin profilsida. 
+När kortet skannas på arkadmaskinen nästa gång startas spelet Tyrian. Spelet fortgår tills game over eller om krediterna tar slut. 
+Då avslutas spelet och startsidan på arkadmaskinen visas igen. Om spelaren saknar krediter på kontot visas information om detta och 
+genom att gå in på sin spelarprofil är det enkelt att fylla på mer. Därefter går det att spela igen.
+
+\subsection{Arkitektur}\index{system!Arkitektur}
+Arkadmaskinen består av flera entiteter som tillsammans skapar arkadsystemet. Den fysiska vyn i figur XY visar informationsflödet 
+mellan dessa entiteter. Datorn Raspberry Pi kör kontinuerligt ett pythonscript som läser data från Högskolan Väst-kortet via kortläsaren. 
+När kort-ID och kommunicerar sedan med ett webAPI för att kontrollera huruvida kortet finns registrerat i systemet eller ej. För 
+icke-registrerade kort genereras en QR-kod för användaren som leder till hemsidan som ligger på webbservern. Där kan användaren 
+registrera sig och ladda på krediter. Nu finns användarinformation och kopplat kort-ID lagrat i databasen. För registrerade kort med 
+krediter körs spelet och datorn tolkar signaler från knappar och joystick. Gränssnittet mellan användare och arkadmaskin är skärmen 
+och högtalarna.
 
 %----------------------------------------------------------------------------------------
 %	CHAPTER 2
@@ -411,64 +427,5 @@ samt ett sätt att se till att viktig information eller dylikt kom ut utan att d
 eller glöms av.
 
 Som helhet har projektet gått bra. Vi har löst uppkomna problem under arbetets gång och fått ut en fullt fungerade arkadmaskin. 
-
-
-\chapter{Presenting Information}
-
-\section{Table}\index{Table}
-
-\begin{table}[h]
-\centering
-\begin{tabular}{l l l}
-\toprule
-\textbf{Treatments} & \textbf{Response 1} & \textbf{Response 2}\\
-\midrule
-Treatment 1 & 0.0003262 & 0.562 \\
-Treatment 2 & 0.0015681 & 0.910 \\
-Treatment 3 & 0.0009271 & 0.296 \\
-\bottomrule
-\end{tabular}
-\caption{Table caption}
-\end{table}
-
-%------------------------------------------------
-
-\section{Figure}\index{Figure}
-
-\begin{figure}[h]
-\centering\includegraphics[scale=0.5]{placeholder}
-\caption{Figure caption}
-\end{figure}
-
-%----------------------------------------------------------------------------------------
-%	BIBLIOGRAPHY
-%----------------------------------------------------------------------------------------
-
-\chapter*{Bibliography}
-\addcontentsline{toc}{chapter}{\textcolor{ocre}{Bibliography}}
-
-%------------------------------------------------
-
-\section*{Articles}
-\addcontentsline{toc}{section}{Articles}
-\printbibliography[heading=bibempty,type=article]
-
-%------------------------------------------------
-
-\section*{Books}
-\addcontentsline{toc}{section}{Books}
-\printbibliography[heading=bibempty,type=book]
-
-%----------------------------------------------------------------------------------------
-%	INDEX
-%----------------------------------------------------------------------------------------
-
-\cleardoublepage
-\phantomsection
-\setlength{\columnsep}{0.75cm}
-\addcontentsline{toc}{chapter}{\textcolor{ocre}{Index}}
-\printindex
-
-%----------------------------------------------------------------------------------------
 
 \end{document}
