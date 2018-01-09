@@ -36,11 +36,11 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {3.1}Chassi}{13}{section.3.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.2}Dator och RFID-l\IeC {\"a}sare}{13}{section.3.2}
+\contentsline {section}{\numberline {3.2}Dator och RFID-l\IeC {\"a}sare}{14}{section.3.2}
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {3.3}Server}{14}{section.3.3}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3.3.1}Hemsida}{14}{subsection.3.3.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {4}Projektreflektioner}{16}{chapter.4}
+\contentsline {chapter}{\numberline {4}Projektreflektioner}{17}{chapter.4}
 \contentsfinish 

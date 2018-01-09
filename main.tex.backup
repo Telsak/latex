@@ -44,6 +44,7 @@
 
 \documentclass[12pt,fleqn,openany]{book} % Default font size and left-justified equations
 \usepackage{wrapfig}
+\usepackage{algorithm2e}
 %----------------------------------------------------------------------------------------
 
 \input{structure} % Insert the commands.tex file which contains the majority of the structure behind the template
@@ -150,7 +151,7 @@ Då avslutas spelet och startsidan på arkadmaskinen visas igen. Om spelaren sak
 genom att gå in på sin spelarprofil är det enkelt att fylla på mer. Därefter går det att spela igen.
 
 \subsection{Arkitektur}\index{system!Arkitektur}
-Arkadmaskinen består av flera entiteter som tillsammans skapar arkadsystemet. Den fysiska vyn i figur XY visar informationsflödet 
+Arkadmaskinen består av flera entiteter som tillsammans skapar arkadsystemet. Den fysiska vyn i Fig. \ref{fig_physview} visar informationsflödet 
 mellan dessa entiteter. Datorn Raspberry Pi kör kontinuerligt ett pythonscript som läser data från Högskolan Väst-kortet via kortläsaren. 
 När kort-ID och kommunicerar sedan med ett webAPI för att kontrollera huruvida kortet finns registrerat i systemet eller ej. För 
 icke-registrerade kort genereras en QR-kod för användaren som leder till hemsidan som ligger på webbservern. Där kan användaren 
@@ -170,19 +171,18 @@ och högtalarna.
 
 \chapter{Design och implementering}
 \section{Chassi}\index{design!Chassi}
-Gruppen diskuterade till en början att göra ett litet kabinett som skulle behöva stå på ett högre bord om man vill stå upp 
-och spela men vi kom snabbt fram till att göra ett i full storlek på 170 cm. Funderingen kring utsågning av material löstes av 
-elever på Magnus Åbergsgymnasiets (MÅG) byggprogram för att få dem enligt vår CAD ritning.
+Gruppen diskuterade till en början att göra ett litet kabinett som skulle behöva stå på ett högre bord om man vill stå upp och
+spela men vi kom snabbt fram till att göra ett i full storlek på 170 cm. Funderingen kring utsågning av material löstes av elever
+på Magnus Åbergsgymnasiets (MÅG) byggprogram för att få dem enligt vår CAD ritning. Design och mått gjordes i Autodesk Inventor 
+2018 med grund-design taget från koenigs.dk\footnote{http://www.koenigs.dk/mame/eng}.
 
-\bigskip
 Det som användes var två stycken MDF skivor, två plexiglas, en regel till bottenplatta samt att stödja upp nederdelen av skåpet. 
 Detta har sponsrats av Karl Hedin i Vänersborg. Invändigt för att montera fast de MDF skivor som användes till högtalare, tak, 
-frontpanel, kontrollerbräda och den liggande brädan under kontrollerbrädan användes planhyvlat virke i måtten 21x43x2300 mm. 
-Kvartsstaven användes för att skapa en snyggare övergång mellan skärmen och kontrollbrädans kanter.
+frontpanel, kontrollbräda och den liggande brädan under kontrollbrädan användes planhyvlat virke. Kvartsstaven användes för att 
+skapa en snyggare övergång mellan skärmen och kontrollbrädans kanter.
 
-\begin{table}[h!]
-\resizebox{\textwidth}{!}{%
-\centering
+\begin{table}[h]
+\centering\resizebox{.9\textwidth}{!}{%
 \begin{tabular}{ ||c|c|c|| } 
  \hline
  Chassi & Hårdvara & Övrigt \\ [0.5ex]
@@ -202,21 +202,23 @@ Kvartsstaven användes för att skapa en snyggare övergång mellan skärmen och
 \label{table_material}
 \end{table}
 
-\begin{wrapfigure}{R}{0.35\textwidth}
+\begin{wrapfigure}[17]{R}{0.35\textwidth}
   \begin{center}
     \includegraphics[width=0.3\textwidth]{materialdelar}
   \end{center}
   \caption{Det utsågade materialet}
   \label{fig_material}
 \end{wrapfigure}
+\newpage
 Det som var viktigt att tänka på under hela monteringen av chassit var att nästa steg fick övervägas innan delarna sattes fast 
-för att inte göra det svårare i nästa moment. För att dölja insidan av skåpet och ramen på skärmen användes designfolie på 
-framsidan av plexiglaset. Skärmens kanter målades svarta med nagellack för att de inte skulle synas från sidan. Brädan för 
-högtalarna har två utsågade hål och högtalarna sitter fastspända på baksidan med hålband. För att dölja de utsågade hålen 
-som gjorts är ett tyg fastspänt över. Vi valde senare att designa kontrollbrädan med plexiglas. Detta medförde att de redan 
-utsågade hålen i MDF skivan var för små och detta löstes genom att fräsa ur dem lite. Hålen i plexiglaset ritades ut med hjälp 
-av ursprungsbrädan och en hålsåg användes för att göra hålen. För att dölja MDF materialet användes även här designfolie och 
-hålen skars ut men inte hela vägen runt utan i snitt in mot mitten.
+för att inte göra det svårare i nästa moment. För att dölja insidan av skåpet och ramen på skärmen användes designfolie på framsidan 
+av plexiglaset. Skärmens kanter målades svarta med nagellack för att de inte skulle synas från sidan. Brädan för högtalarna har två
+utsågade hål och högtalarna sitter fastspända på baksidan med hålband. För att dölja de utsågade hålen som gjorts är ett tyg fastspänt
+över. Vi valde senare att designa kontrollbrädan med plexiglas. Detta medförde att de redan utsågade hålen i MDF skivan var för små 
+och detta löstes genom att fräsa ur dem lite. Det behövdes även fräsas för att joystickarna skulle komma upp mer. Hålen i plexiglaset
+ritades ut med hjälp av ursprungsbrädan och en hålsåg användes för att göra hålen. För att dölja MDF materialet användes även här 
+designfolie och hålen skars ut men inte hela vägen runt utan i snitt in mot mitten. Vi hittade ingen bra bild att använda till bannern 
+så beslutet blev att skära ut “NTK ARKADE” i designfolie och sätta mellan de två plexiglasen.
 
 \section{Dator och kortläsare}\index{design!Dator och kortläsare}
 \subsection{Översikt}\index{design!Översikt}
@@ -260,21 +262,26 @@ Programmet som körs på arkadmaskinen är skrivet i Python och styr kopplingen 
 Efter att spelaren har spelat klart sparas även information om spelsessionen såsom hur mycket poäng spelaren fick och speltid. 
 Den informationen presenteras sedan på hemsidan som en highscore-lista. Nedan visas med pseudo-kod hur programmet är uppbyggt. 
 
-\begin{verbatim}
-WHILE arcade is running
-    scan HV-card
-    IF player exist THEN
-        debit player 10 coins
-    IF if debit went well THEN
-        start OpenTyrian
-        wait for game over
-            save highscore
-    ELSE
-        inform the player to refill coins
-ELSE
-    inform the player to register
-ENDWHILE
-\end{verbatim}
+\begin{figure}
+\begin{algorithm}[H]
+ \While{arcade is running}{
+  wait for player to scan HV-card\;
+  \eIf{player exist}{
+   debit player 10 coins\;
+   \eIf{debit went well}{
+    start OpenTyrian\;
+    wait for game over\;
+    save highscore\;
+   }{
+    inform the player to refill coins\;
+   }
+  }{
+   inform the player to register\;
+  }
+ }
+\end{algorithm}
+\caption{mainloop körandes på arkadmaskinen}
+\end{figure}
 
 \subsection{Modifiering av OpenTyrian}\index{design!OpenTyrian}
 För att få spelet att fungera som vi ville fullt ut behövdes viss modifikation göras. En av ändringarna som gjordes 
@@ -304,6 +311,10 @@ trycka i menyn.
 
 \section{Server}\index{design!Server}
 \subsection{Databas}\index{design!Databas}
+
+Databasen som används är MariaDB\footnote{[https://mariadb.org/about/}. Kommunikationen mellan arkadmaskinen och databasen 
+sker via ett webAPI skrivet i PHP. På detta sätt blir systemet skalbart och ändringar kan lätt göras utan att behöva göra 
+ändringar direkt på arkadmaskinen.
 
 Databasen är uppbyggd av två tabeller (se figur X): player och highscore. I player sparas information om spelare 
 såsom namn, epost med mera. I highscore sparas information efter varje spelrunda som har gjorts med hur mycket 
@@ -355,10 +366,13 @@ skulle vara något med maskinen eller spelet som inte skulle fungera. Hemsidan �
 \chapter{Designanalys}
 
 \section{Chassi}\index{analys!Chassi}
-Valet att bygga ett större kabinett grundades i att vi förmodligen bara skulle göra detta en gång och att vi ville göra det rejält och att
-det skulle bli så likt de klassiska arkadmaskinerna som möjligt. När det kommer till utsågning av material och att det blev elever på MÅG 
-som gjorde det var för att ingen i gruppen har större erfarenhet kring detta och vi ville ha delarna så perfekta det bara gick. Att det blev 
-MDF som material grundades i att de flesta ritningar och guider använde MDF och det var det bästa alternativet. 
+Valet att bygga ett större kabinett grundades i att vi förmodligen bara skulle göra detta en gång och att vi ville göra det 
+rejält och så likt de klassiska arkadmaskinerna som möjligt. När det kommer till utsågning av material och att det blev elever 
+på MÅG som gjorde det var för att ingen i gruppen har större erfarenhet kring detta och vi ville ha delarna så perfekta det 
+bara gick. Att det blev MDF som material grundades i att de flesta ritningar och guider använde MDF och det var det bästa 
+alternativet. Att vi gjorde valet med att sätta plexiglas på kontrollbrädan var för att det gav ett mer autentiskt intryck.
+
+
 
 \section{Dator och RFID-läsare}\index{analys!Dator och RFID-läsare}
 %\begin{wrapfigure}[13]{r}{0.25\textwidth}
