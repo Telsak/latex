@@ -137,7 +137,7 @@ olika spelrättigheter. Spelet som valdes heter Tyrian och blev tillgängligt so
 olika skjutvapen och ska skjuta fiender och samla poäng och power-ups i sann arkadstil.
 
 Till en början funderade vi på att designa arkadmaskinen med litet kabinett som skulle stå på ett bord för att komma upp i högre höjd
-men vi kom snabbt fram till att vi ville göra en i full storlek, ca 170 cm högt. Det material som valdes var 19 mm MDF skiva, plexiglas
+men vi kom snabbt fram tll att vi ville göra en i full storlek, ca 170 cm högt. Det material som valdes var 19 mm MDF skiva, plexiglas
 samt regel och detta har Karl Hedin i Vänersborg sponsrat oss med. Då vi inte hade tillgång till de verktyg eller utrymme som behövdes 
 för att såga ut delarna tog vi hjälp av Magnus Åbergsgymnasiets (MÅG) byggprogram.
 
@@ -146,8 +146,6 @@ för att såga ut delarna tog vi hjälp av Magnus Åbergsgymnasiets (MÅG) byggp
 %deras kompetens fick vi delarna precis så som vi ville ha dem.
 
 \section{Systembeskrivning}\index{Systembeskrivning}
-%\subsection{Användning och arkitektur}\index{system!Användning}
-%\subsection{Användning}\index{system!Användning}
 Användaren börjar med att skanna sitt Högskolan Väst-kort på framsidan av arkadmaskinen. Första gången kortet skannas så visas ett 
 meddelande om att registrering krävs innan man får spela och en QR-kod presenteras. Genom att skanna koden med sin smartphone öppnas 
 hemsidan arkadprojekt.se som är kopplad till projektet. Där skapar man sitt konto och kan sedan ladda på krediter på sin profilsida. 
@@ -156,13 +154,11 @@ Då avslutas spelet och startsidan på arkadmaskinen visas igen. Om spelaren sak
 genom att gå in på sin spelarprofil är det enkelt att fylla på mer. Därefter går det att spela igen.
 \bigskip
 
-%\subsection{Arkitektur}\index{system!Arkitektur}
 Arkadmaskinen består av flera entiteter som tillsammans skapar arkadsystemet. Den fysiska vyn i Figur \ref{fig_physview} visar informationsflödet 
 mellan dessa entiteter. Datorn Raspberry Pi kör kontinuerligt ett pythonscript som läser data från Högskolan Väst-kortet via kortläsaren. 
 När kort-ID är inläst kommunicerar datorn med ett webAPI för att kontrollera huruvida kortet finns registrerat i systemet eller ej. För 
 icke-registrerade kort genereras en QR-kod för användaren som leder till hemsidan som ligger på webbservern. Där kan användaren 
 registrera sig och ladda på krediter. Inläst kort-ID och användarinformation knyts nu ihop och lagras i databasen.
-%Nu finns användarinformation och kopplat kort-ID lagrat i databasen.
 För registrerade kort med krediter körs spelet och datorn tolkar signaler från knappar och joystick. Gränssnittet mellan användare och arkadmaskin är skärmen 
 och högtalarna.
 
