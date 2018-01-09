@@ -45,6 +45,7 @@
 \documentclass[12pt,fleqn,openany]{book} % Default font size and left-justified equations
 \usepackage{wrapfig}
 \usepackage{algorithm2e}
+
 %----------------------------------------------------------------------------------------
 
 \input{structure} % Insert the commands.tex file which contains the majority of the structure behind the template
@@ -209,10 +210,12 @@ skapa en snyggare övergång mellan skärmen och kontrollbrädans kanter. Tabell
 \label{table_material}
 \end{table}
 
-\begin{wrapfigure}[17]{R}{0.35\textwidth}
+
+\begin{wrapfigure}{R}{0.35\textwidth}
   \begin{center}
     \fbox{\includegraphics[width=0.3\textwidth]{materialdelar}}
   \end{center}
+  \vspace*{-0.6cm}
   \caption{Det utsågade materialet}
   \label{fig_material}
 \end{wrapfigure}
@@ -310,7 +313,7 @@ sker via ett webAPI skrivet i PHP. På detta sätt blir systemet skalbart och ä
 \clearpage
 I player sparas information om spelare såsom namn, epost med mera. I highscore sparas information efter varje spelrunda som
 har gjorts med hur mycket poäng spelaren fick, hur länge spelet pågick med mera. Nedan i tabell \ref{table_databas} förklaras de olika fälten
-i tabellerna mer noggrant.
+i tabellerna mer noggrant. Notera att coins är vad spelaren ser, i vår kod heter det credits.
 
 %\clearpage\newpage
 
