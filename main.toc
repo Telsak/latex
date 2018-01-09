@@ -36,7 +36,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {3.1}Chassi}{12}{section.3.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.2}Dator och RFID-l\IeC {\"a}sare}{12}{section.3.2}
+\contentsline {section}{\numberline {3.2}Dator och kortl\IeC {\"a}sare}{12}{section.3.2}
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {3.3}Server}{13}{section.3.3}
 \defcounter {refsection}{0}\relax 
