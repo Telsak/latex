@@ -1,0 +1,412 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The Legrand Orange Book
+% LaTeX Template
+% Version 2.3 (8/8/17)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Mathias Legrand (legrand.mathias@gmail.com) with modifications by:
+% Vel (vel@latextemplates.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Compiling this template:
+% This template uses biber for its bibliography and makeindex for its index.
+% When you first open the template, compile it from the command line with the 
+% commands below to make sure your LaTeX distribution is configured correctly:
+%
+% 1) pdflatex main
+% 2) makeindex main.idx -s StyleInd.ist
+% 3) biber main
+% 4) pdflatex main x 2
+%
+% After this, when you wish to update the bibliography/index use the appropriate
+% command above and make sure to compile with pdflatex several times 
+% afterwards to propagate your changes to the document.
+%
+% This template also uses a number of packages which may need to be
+% updated to the newest versions for the template to compile. It is strongly
+% recommended you update your LaTeX distribution if you have any
+% compilation errors.
+%
+% Important note:
+% Chapter heading images should have a 2:1 width:height ratio,
+% e.g. 920px width and 460px height.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[12pt,fleqn,openany]{book} % Default font size and left-justified equations
+\usepackage{wrapfig}
+%----------------------------------------------------------------------------------------
+
+\input{structure} % Insert the commands.tex file which contains the majority of the structure behind the template
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\begingroup
+\thispagestyle{empty}
+\begin{tikzpicture}[remember picture,overlay]
+\node[inner sep=0pt] (background) at (current page.center) {\includegraphics[width=\paperwidth]{background}};
+\draw (current page.center) node [fill=black,fill opacity=0.8,text opacity=1,text=white,inner sep=1cm]{\Huge\centering\bfseries\sffamily\parbox[c][][t]{\paperwidth}{\centering Arkadprojekt\\[15pt] % Book title
+{\Large med RFID avläsning}\\[20pt] % Subtitle
+{\normalsize Simon Olofsson, Olof Ivarsson, Madeleine Karlsson, Patrick Lundin, Sara Andersson, Emrik Olsson}}}; % Author name
+\end{tikzpicture}
+\vfill
+\endgroup
+
+%----------------------------------------------------------------------------------------
+%	COPYRIGHT PAGE
+%----------------------------------------------------------------------------------------
+
+\newpage
+~\vfill
+\thispagestyle{empty}
+
+\noindent Revision history: v1.0 - Mon, Jan 8 2018.
+
+%\noindent Copyright \copyright\ 2013 John Smith\\ % Copyright notice
+
+%\noindent \textsc{Published by Publisher}\\ % Publisher
+
+%\noindent \textsc{book-website.com}\\ % URL
+
+%\noindent Licensed under the Creative Commons Attribution-NonCommercial 3.0 Unported License (the ``License''). You may not use this file except in compliance with the License. You may obtain a copy of the License at \url{http://creativecommons.org/licenses/by-nc/3.0}. Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \textsc{``as is'' basis, without warranties or conditions of any kind}, either express or implied. See the License for the specific language governing permissions and limitations under the License.\\ % License information
+
+%\noindent \textit{First printing, March 2013} % Printing/edition date
+
+%\noindent \textit{(This page left intentionally blank)}
+
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS
+%----------------------------------------------------------------------------------------
+
+%\usechapterimagefalse % If you don't want to include a chapter image, use this to toggle images off - it can be enabled later with \usechapterimagetrue
+
+\chapterimage{chapter_head_tyrian_logo.pdf} % Table of contents heading image
+
+\pagestyle{empty} % No headers
+
+\tableofcontents % Print the table of contents itself
+
+% \cleardoublepage % Forces the first chapter to start on an odd page so it's on the right
+
+\pagestyle{fancy} % Print headers again
+
+%----------------------------------------------------------------------------------------
+%	PART
+%----------------------------------------------------------------------------------------
+
+%\part{Part One}
+
+%----------------------------------------------------------------------------------------
+%	CHAPTER 1
+%----------------------------------------------------------------------------------------
+
+\chapterimage{chapter_head_2.pdf} % Chapter heading image
+
+\chapter{Introduktion}
+
+\section{Bakgrund}\index{Bakgrund}
+Vi påbörjade en kurs som heter Praktisk datateknik där vi fick möjlighet att själva välja vilket projektarbete vi ville göra.
+Vår grupp bestod av sex personer och vi enades om att bygga en arkadmaskin. Till en början funderade vi på att göra en med litet 
+kabinett som skulle stå på ett bord för att komma upp i högre höjd men vi kom snabbt fram till att vi ville göra en i full storlek, 
+ca 170 cm. Det material som valdes var 19mm MDF skiva, plexiglas samt regel och detta har Karl Hedin i Vänersborg sponsrat oss med. 
+En fundering/ett problem vi hade var hur vi skulle såga ut alla delar perfekt utifrån vår CAD ritning då ingen av oss hade tillgång 
+till de verktyg eller utrymme som krävdes. Detta löstes genom att Magnus Åbergsgymnasiets (MÅG) byggprogram tillfrågades och genom deras 
+kompetens fick vi delarna precis så som vi ville ha dem. 
+\bigskip
+
+Det vi även behövde ta ställning till var vilken typ av spel vi skulle använda oss av. Då vi hade planerat att använda en RFID-läsare 
+för att kunna ta betalt av potentiella spelare kom vi fram till att det fick bli ett open-source spel. Detta gjorde att vi inte behövde 
+ta hänsyn till olika spelrättigheter. Spelet som valdes heter Tyrian och blev 2004 tillgängligt som freeware. Spelaren styr ett rymdskepp 
+utrustat med olika skjutvapen och ska skjuta fiender och samla poäng och power-ups i sann arkad anda.
+\bigskip
+
+Studenter på Högskolan Väst är målgruppen för detta projektarbete med fokus på deras studentkort som används för att komma in och ut genom 
+dörrar i byggnaderna och låna böcker. För att kunna genomföra iden med betalning genom studenternas kort krävdes det att RFID-läsaren kunde 
+läsa på samma frekvens som korten är inställda på och även kunna skicka information till en extern server. På den externa servern sköttes 
+hanteringen av spelarprofiler, registrera användare, möjlighet att öka krediter för att kunna spela på arkadmaskinen samt att skicka 
+information som att spelet skall öppnas på arkaden när det finns tillräckligt med krediter hos spelaren. Ett annat mål var att om en 
+spelare inte var registrerad eller hade krediter för att kunna spela skall det visas en QR-kod som kan skannas och tar spelaren antingen 
+direkt till hemsidans registreringssida alternativt till profilsidan för att fylla på krediter.
+
+\section{Systembeskrivning}\index{Systembeskrivning}
+
+%----------------------------------------------------------------------------------------
+%	CHAPTER 2
+%----------------------------------------------------------------------------------------
+
+\chapter{Design och implementering}
+\section{Chassi}\index{design!Chassi}
+Gruppen diskuterade till en början att göra ett litet kabinett som skulle behöva stå på ett högre bord om man vill stå upp 
+och spela men vi kom snabbt fram till att göra ett i full storlek på 170 cm. Funderingen kring utsågning av material löstes av 
+elever på Magnus Åbergsgymnasiets (MÅG) byggprogram för att få dem enligt vår CAD ritning.
+
+\bigskip
+Det som användes var två stycken MDF skivor, två plexiglas, en regel till bottenplatta samt att stödja upp nederdelen av skåpet. 
+Detta har sponsrats av Karl Hedin i Vänersborg. Invändigt för att montera fast de MDF skivor som användes till högtalare, tak, 
+frontpanel, kontrollerbräda och den liggande brädan under kontrollerbrädan användes planhyvlat virke i måtten 21x43x2300 mm. 
+Kvartsstaven användes för att skapa en snyggare övergång mellan skärmen och kontrollbrädans kanter.
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{ ||c|c|c|| } 
+ \hline
+ Chassi & Hårdvara & Övrigt \\ [0.5ex]
+ \hline\hline
+ 2st MDF 19x1200x2400 mm & Raspberry Pi & Färg + penslar \\ 
+ 1st Regel 45x95x2700 mm & Arkadknappar 14st & Designfolie \\ 
+ 2 st Plexiglas 3x600x750 mm & Joystick 2 st & Tyg till högtalarbrädan \\
+ 1 st Kvartsstav 9x9x900 mm & Skärm & Belysning \\
+ Hjul & Högtalare & Diverse lämpliga verktyg \\
+ Dörrhängare & Kablar & \\
+ Lås & Hålband till högtalarna & \\
+ Skruv & Flatstifthylsor & \\
+ Handtag & & \\
+ \hline
+\end{tabular}
+\caption{Material som användes}
+\label{table_material}
+\end{table}
+
+\begin{wrapfigure}{R}{0.35\textwidth}
+  \begin{center}
+    \includegraphics[width=0.3\textwidth]{materialdelar}
+  \end{center}
+  \caption{Det utsågade materialet}
+  \label{fig_material}
+\end{wrapfigure}
+Det som var viktigt att tänka på under hela monteringen av chassit var att nästa steg fick övervägas innan delarna sattes fast 
+för att inte göra det svårare i nästa moment. För att dölja insidan av skåpet och ramen på skärmen användes designfolie på 
+framsidan av plexiglaset. Skärmens kanter målades svarta med nagellack för att de inte skulle synas från sidan. Brädan för 
+högtalarna har två utsågade hål och högtalarna sitter fastspända på baksidan med hålband. För att dölja de utsågade hålen 
+som gjorts är ett tyg fastspänt över. Vi valde senare att designa kontrollbrädan med plexiglas. Detta medförde att de redan 
+utsågade hålen i MDF skivan var för små och detta löstes genom att fräsa ur dem lite. Hålen i plexiglaset ritades ut med hjälp 
+av ursprungsbrädan och en hålsåg användes för att göra hålen. För att dölja MDF materialet användes även här designfolie och 
+hålen skars ut men inte hela vägen runt utan i snitt in mot mitten.
+
+\section{Dator och kortläsare}\index{design!Dator och kortläsare}
+\subsection{Översikt}\index{design!Översikt}
+Enkortsdatorn Raspberry Pi 3 valdes som hårdvaruplattform i projektet. Den främsta anledningen är att datorn erbjuder flertalet
+externa anslutningsmöjligheter, vilket var en förutsättning för att kunna koppla in kortläsare, knappar och joystick. Datorn 
+erbjuder också god prestanda för enklare 2D- och 3D-applikationer samt att energiförbrukningen är låg. Kortläsaren i projektet 
+bestod av en RFID-läsare med kretsen RC-522. Valet baserades på att kretsen skulle stödja Högskolan Väst-korten, som är av typen 
+MIFARE och använder 13,56MHz frekvens för kommunikation. Det var också viktigt att kortläsaren var kompatibel med datorn i termer 
+av drivrutinsstöd och fysisk anslutning.
+
+\begin{figure}[!htb]
+  \begin{minipage}{0.48\textwidth}
+    \centering
+    \fbox{\includegraphics[width=.9\linewidth]{piwithrfid}}
+    \caption{Raspberry PI med kortläsare (RC-522)}
+    \label{fig_pirfid}
+  \end{minipage}\hfill
+  \begin{minipage}{0.48\textwidth}
+    \centering
+    \fbox{\includegraphics[width=.9\linewidth]{rpi-arkad}}		
+    \caption{Knappar och joystick inkopplade}
+    \label{fig_knappar}
+  \end{minipage}\hfill
+\end{figure}
+
+\subsection{Inkoppling}\index{design!Inkoppling}
+Kortläsaren kopplas till datorn via en Serial Peripheral Interface (SPI) port. Den synkrona seriella kommunikationen styrs av 
+datorn som agerar masterenhet. Kortläsaren drivs via datorns inbyggda 3,3V-matning. För att läsa data från Högskolan Väst-korten 
+installerades drivrutiner för kortläsaren samt modulen SPI-Py. Modulen inkluderar bibliotek med färdiga funktioner för att enklare 
+kunna kommunicera via SPI-porten. Knappar och Joystick ansluts till godtyckliga General Purpose Input Output (GPIO) portar på datorn 
+och mappas till spelet Tyrian via mjukvara.
+
+\begin{figure}[h]
+\centering\includegraphics[width=.8\textwidth]{gpio}
+\caption{Använt kopplingsschema för kortläsaren och arkad input}
+\label{fig_gpio}
+\end{figure}
+
+\subsection{Arkadens Mainloop}\index{design!Mainloop}
+Programmet som körs på arkadmaskinen är skrivet i Python och styr kopplingen mellan skanningen av RFID-kort och startande av spel. 
+Efter att spelaren har spelat klart sparas även information om spelsessionen såsom hur mycket poäng spelaren fick och speltid. 
+Den informationen presenteras sedan på hemsidan som en highscore-lista. Nedan visas med pseudo-kod hur programmet är uppbyggt. 
+
+\begin{verbatim}
+WHILE arcade is running
+    scan HV-card
+    IF player exist THEN
+        debit player 10 coins
+    IF if debit went well THEN
+        start OpenTyrian
+        wait for game over
+            save highscore
+    ELSE
+        inform the player to refill coins
+ELSE
+    inform the player to register
+ENDWHILE
+\end{verbatim}
+
+\subsection{Modifiering av OpenTyrian}\index{design!OpenTyrian}
+För att få spelet att fungera som vi ville fullt ut behövdes viss modifikation göras. En av ändringarna som gjordes 
+gäller spelmenyn som visas mellan de olika episoderna i spelet. I den menyn skulle användaren kunna ändra options för 
+spelet samt kunna gå tillbaka till huvudmenyn och göra ytterligare ändringar. 
+För att förhindra detta gjordes ändringar i koden enligt figur \ref{fig_opentyrian} där valet för options i menyn 
+(“case 3” i koden) kommenterats bort helt samt att om spelaren väljer quit i menyn (“case 4” i koden) så skapas en 
+fil med namn QUIT\_GAME\_TRUE som pythonskriptet kontinuerligt kontrollerar om den finns. När pythonskriptet upptäcker 
+filen stängs spelet av helt istället för att spelaren skulle komma tillbaka till spelets huvudmeny.
+
+\begin{figure}[!h]
+\centering\includegraphics[width=\textwidth]{opentyrian}
+\caption{Ändring av game\_menu.c för att inaktivera options-menyn och skapa fil vid avslut}
+\label{fig_opentyrian}
+\end{figure}
+Exempel på andra ändringar som gjorts var även att spara highscore till en fil som pythonskriptet kan läsa av vid 
+spelets slut samt inaktivera huvudmenyn vid spelets start så spelaren kommer in i ett spel direkt utan att behöva 
+trycka i menyn.
+
+\begin{wrapfigure}{r}{0.35\textwidth}
+  \begin{center}
+    \includegraphics[width=0.3\textwidth]{databas}
+  \end{center}
+  \caption{Databastabeller}
+  \label{fig_databas}
+\end{wrapfigure}
+
+\section{Server}\index{design!Server}
+\subsection{Databas}\index{design!Databas}
+
+Databasen är uppbyggd av två tabeller (se figur X): player och highscore. I player sparas information om spelare 
+såsom namn, epost med mera. I highscore sparas information efter varje spelrunda som har gjorts med hur mycket 
+poäng spelaren fick, hur länge spelet pågick med mera. Nedan i tabell XX förklaras de olika fälten i tabellerna mer noggrant.
+
+\begin{table}{htb}
+\centering
+\begin{tabular}{ ||l|l|l|l|| } 
+ \hline
+ \multicolumn{2}{||c|}{Player} & \multicolumn{2}{|c||}{Highscore}  \\
+ \hline
+ Fält & Förklaring & Fält & Förklaring \\
+ \hline\hline
+ pID & spelarens ID & hcID & highscore ID \\
+ pCard & spelarens kortnummer (HV-kort) & pID & spelarens ID \\
+ password & lösenord & playDate & datum för spelsessionen \\
+ fName & förnamn & playedTime & antal sekunder spelsessionen varade \\
+ lName & efternamn & score & antal poäng spelaren fick \\
+ nickName & spelarnamn & price & hur många coins spelrundan kostade \\
+ email & epost & & \\
+ credits & antal coins & & \\
+ \hline\hline
+\end{tabular}
+\caption{Förklaring av databastabell}
+\label{table_databas}
+\end{table}
+\newpage
+
+\subsection{Hemsida}\index{design!Hemsida}
+
+\begin{figure}[!h]
+\centering\includegraphics[width=\textwidth]{hemsida}
+\caption{Projektets hemsida}
+\label{fig_hemsida}
+\end{figure}
+
+\lipsum[1-3]
+
+
+%----------------------------------------------------------------------------------------
+%	CHAPTER 3
+%----------------------------------------------------------------------------------------
+
+\chapter{Designanalys}
+
+\section{Chassi}\index{analys!Chassi}
+
+\lipsum[1-7] % Dummy text
+
+\section{Dator och RFID-läsare}\index{analys!Dator och RFID-läsare}
+
+\section{Server}\index{analys!Server}
+
+\subsection{Databas}\index{analys!Databas}
+
+\subsection{Hemsida}\index{analys!Hemsida}
+
+
+%----------------------------------------------------------------------------------------
+%	CHAPTER 4
+%----------------------------------------------------------------------------------------
+
+\chapter{Projektreflektioner}
+
+\lipsum[1-7] % Dummy text
+
+
+\chapterimage{chapter_head_1.pdf} % Chapter heading image
+
+\chapter{Presenting Information}
+
+\section{Table}\index{Table}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{l l l}
+\toprule
+\textbf{Treatments} & \textbf{Response 1} & \textbf{Response 2}\\
+\midrule
+Treatment 1 & 0.0003262 & 0.562 \\
+Treatment 2 & 0.0015681 & 0.910 \\
+Treatment 3 & 0.0009271 & 0.296 \\
+\bottomrule
+\end{tabular}
+\caption{Table caption}
+\end{table}
+
+%------------------------------------------------
+
+\section{Figure}\index{Figure}
+
+\begin{figure}[h]
+\centering\includegraphics[scale=0.5]{placeholder}
+\caption{Figure caption}
+\end{figure}
+
+%----------------------------------------------------------------------------------------
+%	BIBLIOGRAPHY
+%----------------------------------------------------------------------------------------
+
+\chapter*{Bibliography}
+\addcontentsline{toc}{chapter}{\textcolor{ocre}{Bibliography}}
+
+%------------------------------------------------
+
+\section*{Articles}
+\addcontentsline{toc}{section}{Articles}
+\printbibliography[heading=bibempty,type=article]
+
+%------------------------------------------------
+
+\section*{Books}
+\addcontentsline{toc}{section}{Books}
+\printbibliography[heading=bibempty,type=book]
+
+%----------------------------------------------------------------------------------------
+%	INDEX
+%----------------------------------------------------------------------------------------
+
+\cleardoublepage
+\phantomsection
+\setlength{\columnsep}{0.75cm}
+\addcontentsline{toc}{chapter}{\textcolor{ocre}{Index}}
+\printindex
+
+%----------------------------------------------------------------------------------------
+
+\end{document}
