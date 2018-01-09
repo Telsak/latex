@@ -191,7 +191,8 @@ skapa en snyggare övergång mellan skärmen och kontrollbrädans kanter. Tabell
 
 \begin{table}[h]
 \centering
-\caption{Material som användes}\resizebox{.9\textwidth}{!}{%
+\caption{Material som användes}\vspace*{0.2cm}
+\resizebox{.9\textwidth}{!}{%
 \begin{tabular}{ ||c|c|c|| }
  \hline
  \textbf{Chassi} & \textbf{Hårdvara} & \textbf{Övrigt} \\ [0.5ex]
@@ -315,8 +316,6 @@ I player sparas information om spelare såsom namn, epost med mera. I highscore 
 har gjorts med hur mycket poäng spelaren fick, hur länge spelet pågick med mera. Nedan i tabell \ref{table_databas} förklaras de olika fälten
 i tabellerna mer noggrant. Notera att coins är vad spelaren ser, i vår kod heter det credits.
 
-%\clearpage\newpage
-
 \begin{table}[!h]
 \centering\caption{Förklaring av databastabell}
 \resizebox{\textwidth}{!}{%
@@ -341,11 +340,12 @@ i tabellerna mer noggrant. Notera att coins är vad spelaren ser, i vår kod het
 
 \subsection{Hemsida}\index{design!Hemsida}
 
-Vi köpte domännamnet arkadprojekt.se som hålls av Binero och för att bygga upp hemsidans design och funtioner användes HTML, CSS och PHP.
+Vi köpte domännamnet arkadprojekt.se som hålls av Binero och för att bygga upp hemsidans design och funktioner användes HTML, CSS och PHP. 
+De funktioner är viktiga är möjligheten för spelare att kunna logga in och fylla på coins för att kunna spela 
+på arkadmaskinen. Utöver dessa funktioner hämtar vi highscore från spelet, information om oss som grupp, information om arkadmaskinens 
+historia samt om spelet Tyrian.
 
-De funktioner som framförallt behövs på hemsidan är möjligheten som spelare att kunna logga in och fylla på coins för att sedan kunna spela 
-på arkadmaskinen. Utöver denna funktion har vi med highscore hämtat från spelet, information om oss som grupp, information om arkadmaskinens 
-historia samt om spelet Tyrian. Vi valde även att ha med en supportsida där man kan ta kontakt med någon av gruppmedlemmarna via mail om det 
+Vi valde även att ha med en supportsida där man kan ta kontakt med någon av gruppmedlemmarna via mail om det 
 skulle vara något med maskinen eller spelet som inte skulle fungera. Hemsidan är utformad med de mest nödvändiga funktionerna och hålls väldigt stilren, se Figur \ref{fig_hemsida}
 \begin{figure}[h]
 \centering\includegraphics[width=\textwidth]{hemsida}
