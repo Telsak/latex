@@ -94,7 +94,7 @@
 
 %\usechapterimagefalse % If you don't want to include a chapter image, use this to toggle images off - it can be enabled later with \usechapterimagetrue
 
-\chapterimage{chapter_head_tyrian_logo.pdf} % Table of contents heading image
+\chapterimage{chapter_head_tyrian_logo.png} % Table of contents heading image
 
 \pagestyle{empty} % No headers
 
@@ -300,7 +300,7 @@ trycka i menyn.
 \section{Server}\index{design!Server}
 \subsection{Databas}\index{design!Databas}
 
-Databasen som används är MariaDB\footnote{[https://mariadb.org/about/}. Kommunikationen mellan arkadmaskinen och databasen 
+Databasen som används är MariaDB\footnote{https://mariadb.org/about/}. Kommunikationen mellan arkadmaskinen och databasen 
 sker via ett webAPI skrivet i PHP. På detta sätt blir systemet skalbart och ändringar kan lätt göras utan att behöva göra 
 ändringar direkt på arkadmaskinen. Databasen är uppbyggd av två tabeller: player och highscore, se Figur \ref{fig_databas}.
 \clearpage
@@ -434,11 +434,14 @@ naturliga alternativet. Detta även för att det i gruppen fanns kunskaper sedan
 
 Gruppens reflektioner kring arbetet är att vi som grupp haft en god kontakt sinsemellan med avstämningsmöten en gång i veckan, nära 
 arbete och en messenger konversation som användes i form av intern kommunikation för gruppen.
+\bigskip
 
 Då vi var 6 personer delade vi upp arbetet enligt dess natur (hårdvara, mjukvara, hemsida etc) och delade därefter upp ansvarsområdet 
 på oss i mindre grupper. På så sätt fick vi alla ett bestämt ansvarsområde medan man fanns tillgänglig för att ge stöd åt en annan 
 grupp om det behövdes. Våra möten blev mer avstämningar för att kontrollera och rapportera statusen för de diverse ansvarsområdena 
 samt ett sätt att se till att viktig information eller dylikt kom ut utan att det sägs snabbt i korridoren och därmed lätt missas 
 eller glöms av. Som helhet har projektet gått bra. Vi har löst uppkomna problem under arbetets gång och fått ut en fullt fungerade arkadmaskin. 
+\bigskip
+
 
 \end{document}

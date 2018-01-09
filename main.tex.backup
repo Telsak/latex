@@ -60,7 +60,7 @@
 \begin{tikzpicture}[remember picture,overlay]
 \node[inner sep=0pt] (background) at (current page.center) {\includegraphics[width=\paperwidth]{cabinet}};
 \draw (current page.center) node [fill=black,fill opacity=0.8,text opacity=1,text=white,inner sep=1cm]{\Huge\centering\bfseries\sffamily\parbox[c][][t]{\paperwidth}{\centering Arkadprojekt\\[15pt] % Book title
-{\Large med RFID avläsning}\\[20pt] % Subtitle
+{\Large med RFID-avläsning}\\[20pt] % Subtitle
 {\normalsize Simon Olofsson, Olof Ivarsson, Madeleine Karlsson, Patrick Lundin, Sara Andersson, Emrik Olsson}}}; % Author name
 \end{tikzpicture}
 \vfill
@@ -94,7 +94,7 @@
 
 %\usechapterimagefalse % If you don't want to include a chapter image, use this to toggle images off - it can be enabled later with \usechapterimagetrue
 
-\chapterimage{chapter_head_tyrian_logo.pdf} % Table of contents heading image
+\chapterimage{chapter_head_tyrian_logo.png} % Table of contents heading image
 
 \pagestyle{empty} % No headers
 
@@ -185,7 +185,8 @@ frontpanel, kontrollbräda och den liggande brädan under kontrollbrädan använ
 skapa en snyggare övergång mellan skärmen och kontrollbrädans kanter. Tabell \ref{table_material} listar allt material och Figur \ref{fig_material} är de utsågade delarna.
 
 \begin{table}[h]
-\centering\caption{test}\resizebox{.9\textwidth}{!}{%
+\centering
+\caption{Material som användes}\resizebox{.9\textwidth}{!}{%
 \begin{tabular}{ ||c|c|c|| } 
  \hline
  Chassi & Hårdvara & Övrigt \\ [0.5ex]
@@ -201,7 +202,6 @@ skapa en snyggare övergång mellan skärmen och kontrollbrädans kanter. Tabell
  Handtag & & \\
  \hline
 \end{tabular}}
-%\caption{Material som användes}
 \label{table_material}
 \end{table}
 
@@ -300,7 +300,7 @@ trycka i menyn.
 \section{Server}\index{design!Server}
 \subsection{Databas}\index{design!Databas}
 
-Databasen som används är MariaDB\footnote{[https://mariadb.org/about/}. Kommunikationen mellan arkadmaskinen och databasen 
+Databasen som används är MariaDB\footnote{https://mariadb.org/about/}. Kommunikationen mellan arkadmaskinen och databasen 
 sker via ett webAPI skrivet i PHP. På detta sätt blir systemet skalbart och ändringar kan lätt göras utan att behöva göra 
 ändringar direkt på arkadmaskinen. Databasen är uppbyggd av två tabeller: player och highscore, se Figur \ref{fig_databas}.
 \clearpage
@@ -311,7 +311,7 @@ i tabellerna mer noggrant.
 %\clearpage\newpage
 
 \begin{table}[!h]
-\centering
+\centering\caption{Förklaring av databastabell}
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{ ||l|l|l|l|| } 
  \hline
@@ -329,7 +329,6 @@ i tabellerna mer noggrant.
  credits & antal coins & & \\
  \hline\hline
 \end{tabular}}
-\caption{Förklaring av databastabell}
 \label{table_databas}
 \end{table}
 
@@ -415,7 +414,7 @@ jämföra nya resultat mot deras äldre, samt att ha något att sträva efter i 
 
 \begin{figure}[!h]
 \centering\includegraphics[width=.9\textwidth]{highscore}
-\caption{Highscore lista på hemsidan}
+\caption{Highscore-lista på hemsidan}
 \label{fig_highscore}
 \end{figure}
 
