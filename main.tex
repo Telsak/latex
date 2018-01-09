@@ -262,24 +262,9 @@ Programmet som körs på arkadmaskinen är skrivet i Python och styr kopplingen 
 Efter att spelaren har spelat klart sparas även information om spelsessionen såsom hur mycket poäng spelaren fick och speltid. 
 Den informationen presenteras sedan på hemsidan som en highscore-lista. Nedan visas med pseudo-kod hur programmet är uppbyggt. 
 
-\begin{figure}
-\begin{algorithm}[H]
- \While{arcade is running}{
-  wait for player to scan HV-card\;
-  \eIf{player exist}{
-   debit player 10 coins\;
-   \eIf{debit went well}{
-    start OpenTyrian\;
-    wait for game over\;
-    save highscore\;
-   }{
-    inform the player to refill coins\;
-   }
-  }{
-   inform the player to register\;
-  }
- }
-\end{algorithm}
+\begin{figure}[!h]
+\includegraphics[width=.4\textwidth]{mainloop}
+\label{fig_mainloop}
 \caption{mainloop körandes på arkadmaskinen}
 \end{figure}
 
@@ -301,9 +286,9 @@ Exempel på andra ändringar som gjorts var även att spara highscore till en fi
 spelets slut samt inaktivera huvudmenyn vid spelets start så spelaren kommer in i ett spel direkt utan att behöva 
 trycka i menyn.
 
-\begin{wrapfigure}{r}{0.35\textwidth}
+\begin{wrapfigure}{r}{0.45\textwidth}
   \begin{center}
-    \includegraphics[width=0.3\textwidth]{databas}
+    \includegraphics[width=0.4\textwidth]{databas}
   \end{center}
   \caption{Databastabeller}
   \label{fig_databas}
@@ -314,15 +299,15 @@ trycka i menyn.
 
 Databasen som används är MariaDB\footnote{[https://mariadb.org/about/}. Kommunikationen mellan arkadmaskinen och databasen 
 sker via ett webAPI skrivet i PHP. På detta sätt blir systemet skalbart och ändringar kan lätt göras utan att behöva göra 
-ändringar direkt på arkadmaskinen.
+ändringar direkt på arkadmaskinen. Databasen är uppbyggd av två tabeller (se Fig. \ref{fig_databas}): player och highscore.
+\clearpage
+I player sparas information om spelare såsom namn, epost med mera. I highscore sparas information efter varje spelrunda som
+har gjorts med hur mycket poäng spelaren fick, hur länge spelet pågick med mera. Nedan i tabell \ref{table_databas} förklaras de olika fälten
+i tabellerna mer noggrant.
 
-Databasen är uppbyggd av två tabeller (se figur X): player och highscore. I player sparas information om spelare 
-såsom namn, epost med mera. I highscore sparas information efter varje spelrunda som har gjorts med hur mycket 
-poäng spelaren fick, hur länge spelet pågick med mera. Nedan i tabell XX förklaras de olika fälten i tabellerna mer noggrant.
+%\clearpage\newpage
 
-\clearpage\newpage
-
-\begin{table}
+\begin{table}[!h]
 \centering
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{ ||l|l|l|l|| } 
@@ -373,7 +358,7 @@ bara gick. Att det blev MDF som material grundades i att de flesta ritningar och
 alternativet. Att vi gjorde valet med att sätta plexiglas på kontrollbrädan var för att det gav ett mer autentiskt intryck.
 
 \begin{figure}[h]
-\centering\includegraphics[width=\textwidth]{kontrollpanel}
+\centering\includegraphics[width=.6\textwidth]{kontrollpanel}
 \caption{Kontrollpanelen}
 \label{fig_kontrollpanel}
 \end{figure}
@@ -410,18 +395,17 @@ breakout board med rätt anslutningar.
 
 \subsection{Hemsida}\index{analys!Hemsida}
 
+\begin{figure}[h]
+\centering\includegraphics[width=\textwidth]{profil}
+\caption{Inloggad på hemsidan, profilsidan}
+\label{fig_profilsida}
+\end{figure}
 Hemsidan med sitt stilrena utseende fick i navigeringsfältet ta med inspiration av arkadmaskinen genom att navigeringsknapparna blev 
 omvandlade till arkadknappar. Vi valde även att ha med flera olika underrubriker än de rent användbara som “logga in” och “registrera” 
 Detta då vi ansåg att det blev väldigt tomt utan, och utfyllnaden gav hemsidan en bättre känsla av att vara komplett med information om 
 oss, om arkadmaskiner generellt samt om spelet som vi hade med. En sak som ansågs vara viktigt, att kunna se Highscore på hemsidan. 
 Detta för att inspirera våra spelare att förbättra sig och kunna jämföra nya resultat mot deras äldre, samt att ha något att sträva 
 efter i form av att ligga på första plats.
-
-\begin{figure}[h]
-\centering\includegraphics[width=\textwidth]{profil}
-\caption{Inloggad på hemsidan, profilsidan}
-\label{fig_profilsida}
-\end{figure}
 
 \begin{figure}[!h]
 \centering\includegraphics[width=\textwidth]{support}
