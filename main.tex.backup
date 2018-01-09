@@ -45,6 +45,7 @@
 \documentclass[12pt,fleqn,openany]{book} % Default font size and left-justified equations
 \usepackage{wrapfig}
 \usepackage{algorithm2e}
+
 %----------------------------------------------------------------------------------------
 
 \input{structure} % Insert the commands.tex file which contains the majority of the structure behind the template
@@ -133,13 +134,16 @@ tar spelaren till hemsidans registreringssida alternativt till profilsidan för 
 Projektet behövde ta ställning till vilken typ av spel som kunde användas. Då vi hade planerat att använda en kortläsare för att kunna 
 ta betalt av potentiella spelare kom vi fram till att det fick bli ett open-source spel. Detta gjorde att vi inte behövde ta hänsyn till
 olika spelrättigheter. Spelet som valdes heter Tyrian och blev tillgängligt som freeware 2004. Spelaren styr ett rymdskepp utrustat med 
-olika skjutvapen och ska skjuta fiender och samla poäng och power-ups i sann arkad anda.
+olika skjutvapen och ska skjuta fiender och samla poäng och power-ups i sann arkadstil.
 
 Till en början funderade vi på att designa arkadmaskinen med litet kabinett som skulle stå på ett bord för att komma upp i högre höjd
 men vi kom snabbt fram till att vi ville göra en i full storlek, ca 170 cm högt. Det material som valdes var 19 mm MDF skiva, plexiglas
-samt regel och detta har Karl Hedin i Vänersborg sponsrat oss med. En fundering/ett problem vi hade var hur vi skulle såga ut alla delar
-perfekt utifrån vår CAD ritning då ingen av oss hade tillgång till de verktyg eller utrymme som krävdes. Detta löstes genom att Magnus
-Åbergsgymnasiets (MÅG) byggprogram tillfrågades och genom deras kompetens fick vi delarna precis så som vi ville ha dem.
+samt regel och detta har Karl Hedin i Vänersborg sponsrat oss med. Då vi inte hade tillgång till de verktyg eller utrymme som behövdes 
+för att såga ut delarna tog vi hjälp av Magnus Åbergsgymnasiets (MÅG) byggprogram.
+
+%En fundering/ett problem vi hade var hur vi skulle såga ut alla delar perfekt utifrån vår CAD ritning då ingen av oss hade tillgång 
+%till de verktyg eller utrymme som krävdes. Detta löstes genom att Magnus Åbergsgymnasiets (MÅG) byggprogram tillfrågades och genom 
+%deras kompetens fick vi delarna precis så som vi ville ha dem.
 
 \section{Systembeskrivning}\index{Systembeskrivning}
 %\subsection{Användning och arkitektur}\index{system!Användning}
@@ -157,12 +161,13 @@ Arkadmaskinen består av flera entiteter som tillsammans skapar arkadsystemet. D
 mellan dessa entiteter. Datorn Raspberry Pi kör kontinuerligt ett pythonscript som läser data från Högskolan Väst-kortet via kortläsaren. 
 När kort-ID är inläst kommunicerar datorn med ett webAPI för att kontrollera huruvida kortet finns registrerat i systemet eller ej. För 
 icke-registrerade kort genereras en QR-kod för användaren som leder till hemsidan som ligger på webbservern. Där kan användaren 
-registrera sig och ladda på krediter. Nu finns användarinformation och kopplat kort-ID lagrat i databasen. För registrerade kort med 
-krediter körs spelet och datorn tolkar signaler från knappar och joystick. Gränssnittet mellan användare och arkadmaskin är skärmen 
+registrera sig och ladda på krediter. Inläst kort-ID och användarinformation knyts nu ihop och lagras i databasen.
+%Nu finns användarinformation och kopplat kort-ID lagrat i databasen.
+För registrerade kort med krediter körs spelet och datorn tolkar signaler från knappar och joystick. Gränssnittet mellan användare och arkadmaskin är skärmen 
 och högtalarna.
 
 \begin{figure}[!h]
-\centering\includegraphics[width=.5\textwidth]{physicalview}
+\centering\includegraphics[width=.7\textwidth]{physicalview}
 \caption{Fysisk vy över Arkadmaskinens entiteter}
 \label{fig_physview}
 \end{figure}
@@ -174,8 +179,8 @@ och högtalarna.
 \chapterimage{headercode.png}
 \chapter{Design och implementering}
 \section{Chassi}\index{design!Chassi}
-Gruppen diskuterade till en början att göra ett litet kabinett som skulle behöva stå på ett högre bord om man vill stå upp och
-spela men vi kom snabbt fram till att göra ett i full storlek på 170 cm. Funderingen kring utsågning av material löstes av elever
+Gruppen diskuterade till en början att göra ett litet kabinett som skulle behöva stå på ett bord om man vill stå upp och
+spela men vi kom snabbt fram till att bygga i fullstorlek, ca 170 cm högt. Funderingen kring utsågning av material löstes av elever
 på Magnus Åbergsgymnasiets (MÅG) byggprogram för att få dem enligt vår CAD ritning. Design och mått gjordes i Autodesk Inventor 
 2018 med grund-design taget från koenigs.dk\footnote{http://www.koenigs.dk/mame/eng}.
 
@@ -186,10 +191,11 @@ skapa en snyggare övergång mellan skärmen och kontrollbrädans kanter. Tabell
 
 \begin{table}[h]
 \centering
-\caption{Material som användes}\resizebox{.9\textwidth}{!}{%
-\begin{tabular}{ ||c|c|c|| } 
+\caption{Material som användes}\vspace*{0.2cm}
+\resizebox{.9\textwidth}{!}{%
+\begin{tabular}{ ||c|c|c|| }
  \hline
- Chassi & Hårdvara & Övrigt \\ [0.5ex]
+ \textbf{Chassi} & \textbf{Hårdvara} & \textbf{Övrigt} \\ [0.5ex]
  \hline\hline
  2st MDF 19x1200x2400 mm & Raspberry Pi & Färg + penslar \\ 
  1st Regel 45x95x2700 mm & Arkadknappar 14st & Designfolie \\ 
@@ -205,10 +211,12 @@ skapa en snyggare övergång mellan skärmen och kontrollbrädans kanter. Tabell
 \label{table_material}
 \end{table}
 
-\begin{wrapfigure}[17]{R}{0.35\textwidth}
+
+\begin{wrapfigure}{R}{0.35\textwidth}
   \begin{center}
     \fbox{\includegraphics[width=0.3\textwidth]{materialdelar}}
   \end{center}
+  \vspace*{-0.6cm}
   \caption{Det utsågade materialet}
   \label{fig_material}
 \end{wrapfigure}
@@ -267,8 +275,8 @@ Den informationen presenteras sedan på hemsidan som en highscore-lista. I Figur
 
 \begin{figure}[!h]
 \includegraphics[width=.4\textwidth]{mainloop}
-\label{fig_mainloop}
 \caption{mainloop körandes på arkadmaskinen}
+\label{fig_mainloop}
 \end{figure}
 
 \subsection{Modifiering av OpenTyrian}\index{design!OpenTyrian}
@@ -306,18 +314,16 @@ sker via ett webAPI skrivet i PHP. På detta sätt blir systemet skalbart och ä
 \clearpage
 I player sparas information om spelare såsom namn, epost med mera. I highscore sparas information efter varje spelrunda som
 har gjorts med hur mycket poäng spelaren fick, hur länge spelet pågick med mera. Nedan i tabell \ref{table_databas} förklaras de olika fälten
-i tabellerna mer noggrant.
-
-%\clearpage\newpage
+i tabellerna mer noggrant. Notera att coins är vad spelaren ser, i vår kod heter det credits.
 
 \begin{table}[!h]
 \centering\caption{Förklaring av databastabell}
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{ ||l|l|l|l|| } 
  \hline
- \multicolumn{2}{||c|}{Player} & \multicolumn{2}{|c||}{Highscore}  \\
+ \multicolumn{2}{||c|}{\textbf{Player}} & \multicolumn{2}{|c||}{\textbf{Highscore}}  \\
  \hline
- Fält & Förklaring & Fält & Förklaring \\
+ \textbf{Fält} & \textbf{Förklaring} & \textbf{Fält} & \textbf{Förklaring} \\
  \hline\hline
  pID & spelarens ID & hcID & highscore ID \\
  pCard & spelarens kortnummer (HV-kort) & pID & spelarens ID \\
@@ -334,11 +340,12 @@ i tabellerna mer noggrant.
 
 \subsection{Hemsida}\index{design!Hemsida}
 
-Vi köpte domännamnet arkadprojekt.se som hålls av Binero och för att bygga upp hemsidans design och funtioner användes HTML, CSS och PHP.
+Vi köpte domännamnet arkadprojekt.se som hålls av Binero och för att bygga upp hemsidans design och funktioner användes HTML, CSS och PHP. 
+Det viktiga är möjligheten för spelare att kunna logga in och fylla på coins för att kunna spela 
+på arkadmaskinen. Utöver dessa funktioner hämtar vi highscore från spelet, information om oss som grupp, information om arkadmaskinens 
+historia samt om spelet Tyrian.
 
-De funktioner som framförallt behövs på hemsidan är möjligheten som spelare att kunna logga in och fylla på coins för att sedan kunna spela 
-på arkadmaskinen. Utöver denna funktion har vi med highscore hämtat från spelet, information om oss som grupp, information om arkadmaskinens 
-historia samt om spelet Tyrian. Vi valde även att ha med en supportsida där man kan ta kontakt med någon av gruppmedlemmarna via mail om det 
+Vi valde även att ha med en supportsida där man kan ta kontakt med någon av gruppmedlemmarna via mail om det 
 skulle vara något med maskinen eller spelet som inte skulle fungera. Hemsidan är utformad med de mest nödvändiga funktionerna och hålls väldigt stilren, se Figur \ref{fig_hemsida}
 \begin{figure}[h]
 \centering\includegraphics[width=\textwidth]{hemsida}
@@ -400,7 +407,7 @@ breakout board med rätt anslutningar.
 
 Vi valde att ha med flera olika underrubriker än de rent användbara som “logga in” och “registrera”, se Figur \ref{fig_profilsida}.
 Detta då vi ansåg att det blev väldigt tomt utan, och utfyllnaden gav hemsidan en bättre känsla av att vara komplett med information om 
-oss, om arkadmaskiner generellt samt om spelet som vi hade med. Hemsidan med sitt stilrena utseende fick i navigeringsfältet ta med inspiration av arkadmaskinen genom att navigeringsknapparna blev 
+oss, om arkadmaskiner generellt samt om spelet OpenTyrian. Hemsidan med sitt stilrena utseende fick i navigeringsfältet inspiration av arkadmaskinen genom att navigeringsknapparna blev 
 omvandlade till arkadknappar. 
 
 \begin{figure}[h]
@@ -409,7 +416,7 @@ omvandlade till arkadknappar.
 \label{fig_profilsida}
 \end{figure}
 
-En sak som ansågs vara viktigt, att kunna se highscore på hemsidan, se Figur \ref{fig_highscore}. Detta för att inspirera våra spelare att förbättra sig och kunna
+En sak som ansågs vara viktigt var att kunna se highscore på hemsidan, se Figur \ref{fig_highscore}. Detta för att inspirera våra spelare att förbättra sig och kunna
 jämföra nya resultat mot deras äldre, samt att ha något att sträva efter i form av att ligga på första plats.
 
 \begin{figure}[!h]
@@ -418,9 +425,9 @@ jämföra nya resultat mot deras äldre, samt att ha något att sträva efter i 
 \label{fig_highscore}
 \end{figure}
 
-Vi valde att köpa domännamnet arkadprojekt.se då vi hittade detta till ett billigt pris, ett väl passande namn. Hade vi inte hittat
-detta så var tanken att vi skulle använda oss av ett gratis domännamn som inte hade givit oss ett lika passande namn, samt att vi inte
-hade fått lika stor frihet i namnet som i den köpta utvalda domänen.  
+Vi valde att köpa domännamnet arkadprojekt.se då vi hittade detta till ett passande namn. Hade vi inte hittat
+detta så var tanken att vi skulle använda oss av ett gratis domännamn som inte hade givit oss ett lika bra namn, samt att vi inte
+hade fått lika stor frihet i namnet som i den köpta domänen.  
 
 Anledningen till att PHP användes var för att vi använder oss av operativsystemet Linux på servern och då kändes detta som det mest 
 naturliga alternativet. Detta även för att det i gruppen fanns kunskaper sedan tidigare om användandet av PHP.
@@ -434,11 +441,14 @@ naturliga alternativet. Detta även för att det i gruppen fanns kunskaper sedan
 
 Gruppens reflektioner kring arbetet är att vi som grupp haft en god kontakt sinsemellan med avstämningsmöten en gång i veckan, nära 
 arbete och en messenger konversation som användes i form av intern kommunikation för gruppen.
+\bigskip
 
 Då vi var 6 personer delade vi upp arbetet enligt dess natur (hårdvara, mjukvara, hemsida etc) och delade därefter upp ansvarsområdet 
 på oss i mindre grupper. På så sätt fick vi alla ett bestämt ansvarsområde medan man fanns tillgänglig för att ge stöd åt en annan 
 grupp om det behövdes. Våra möten blev mer avstämningar för att kontrollera och rapportera statusen för de diverse ansvarsområdena 
 samt ett sätt att se till att viktig information eller dylikt kom ut utan att det sägs snabbt i korridoren och därmed lätt missas 
 eller glöms av. Som helhet har projektet gått bra. Vi har löst uppkomna problem under arbetets gång och fått ut en fullt fungerade arkadmaskin. 
+\bigskip
+
 
 \end{document}
