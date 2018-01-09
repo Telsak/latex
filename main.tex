@@ -287,6 +287,8 @@ Databasen är uppbyggd av två tabeller (se figur X): player och highscore. I pl
 såsom namn, epost med mera. I highscore sparas information efter varje spelrunda som har gjorts med hur mycket 
 poäng spelaren fick, hur länge spelet pågick med mera. Nedan i tabell XX förklaras de olika fälten i tabellerna mer noggrant.
 
+\clearpage\newpage
+
 \begin{table}{htb}
 \centering
 \begin{tabular}{ ||l|l|l|l|| } 
@@ -308,18 +310,19 @@ poäng spelaren fick, hur länge spelet pågick med mera. Nedan i tabell XX för
 \caption{Förklaring av databastabell}
 \label{table_databas}
 \end{table}
-\newpage
 
 \subsection{Hemsida}\index{design!Hemsida}
 
-\begin{figure}[!h]
+Vi köpte domännamnet arkadprojekt.se som hålls av Binero och för att bygga upp hemsidans design och funtioner användes HTML, CSS och PHP.\bigskip
+\begin{figure}[h]
 \centering\includegraphics[width=\textwidth]{hemsida}
 \caption{Projektets hemsida}
 \label{fig_hemsida}
 \end{figure}
-
-\lipsum[1-3]
-
+De funktioner som framförallt behövs på hemsidan är möjligheten som spelare att kunna logga in och fylla på coins för att sedan kunna spela 
+på arkadmaskinen. Utöver denna funktion har vi med highscore hämtat från spelet, information om oss som grupp, information om arkadmaskinens 
+historia samt om spelet Tyrian. Vi valde även att ha med en supportsida där man kan ta kontakt med någon av gruppmedlemmarna via mail om det 
+skulle vara något med maskinen eller spelet som inte skulle fungera. Hemsidan är utformad med de mest nödvändiga funktionerna och hålls väldigt stilren.
 
 %----------------------------------------------------------------------------------------
 %	CHAPTER 3
@@ -328,28 +331,87 @@ poäng spelaren fick, hur länge spelet pågick med mera. Nedan i tabell XX för
 \chapter{Designanalys}
 
 \section{Chassi}\index{analys!Chassi}
-
-\lipsum[1-7] % Dummy text
+Valet att bygga ett större kabinett grundades i att vi förmodligen bara skulle göra detta en gång och att vi ville göra det rejält och att
+det skulle bli så likt de klassiska arkadmaskinerna som möjligt. När det kommer till utsågning av material och att det blev elever på MÅG 
+som gjorde det var för att ingen i gruppen har större erfarenhet kring detta och vi ville ha delarna så perfekta det bara gick. Att det blev 
+MDF som material grundades i att de flesta ritningar och guider använde MDF och det var det bästa alternativet. 
 
 \section{Dator och RFID-läsare}\index{analys!Dator och RFID-läsare}
+%\begin{wrapfigure}[13]{r}{0.25\textwidth}
+%  \begin{center}
+%    \includegraphics[width=0.2\textwidth]{breakout}
+%  \end{center}
+%  \caption{Breakout board}
+%  \label{fig_breakout}
+%\end{wrapfigure}
+Enkortsdatorn Raspberry Pi 3 har flera positiva egenskaper som ligger till grund för projektets val av dator:
+
+\begin{itemize}
+ \item Liten
+ \item Billig
+ \item Flera anslutningsmöjligheter
+ \item Energisnål
+ \item God prestanda för enklare applikationer och spel
+ \item Stort utbud i butik
+\end{itemize}
+\bigskip
+
+Det finns dock andra dator- och anslutningsalternativ som kan ha fungerat lika bra. Arkadmaskinens chassi har exempelvis gott med utrymme 
+för att kunna använda en traditionell och mer kraftfull dator. Detta vore nödvändigt för mer krävande system. För att lösa utmaningen med 
+inkoppling av RFID-läsare, knappar och joystick så finns det s.k breakout boards som en lösning. Dessa boards kan tillhandahålla anslutningar 
+såsom RS232, SPI, I2C, realtidsklocka och vanlig GPIO. Ofta kommunicerar dessa kort med datorn via USB. Valet av RFID-läsaren baseras på att 
+den är kompatibel med Högskolan Väst-korten, är kompatibel med datorn och att den fanns tillgänglig att köpa i butik. Hade projektet använt 
+en traditionell dator utan stöd för SPI så finns det andra RFID-läsare som kommunicerar seriellt via RS232. Alternativt använder man en 
+breakout board med rätt anslutningar.
 
 \section{Server}\index{analys!Server}
 
-\subsection{Databas}\index{analys!Databas}
-
 \subsection{Hemsida}\index{analys!Hemsida}
 
+Hemsidan med sitt stilrena utseende fick i navigeringsfältet ta med inspiration av arkadmaskinen genom att navigeringsknapparna blev 
+omvandlade till arkadknappar. Vi valde även att ha med flera olika underrubriker än de rent användbara som “logga in” och “registrera” 
+Detta då vi ansåg att det blev väldigt tomt utan, och utfyllnaden gav hemsidan en bättre känsla av att vara komplett med information om 
+oss, om arkadmaskiner generellt samt om spelet som vi hade med. En sak som ansågs vara viktigt, att kunna se Highscore på hemsidan. 
+Detta för att inspirera våra spelare att förbättra sig och kunna jämföra nya resultat mot deras äldre, samt att ha något att sträva 
+efter i form av att ligga på första plats.
+
+\begin{figure}[h]
+\centering\includegraphics[width=\textwidth]{profil}
+\caption{Inloggad på hemsidan, profilsidan}
+\label{fig_profilsida}
+\end{figure}
+
+\begin{figure}[!h]
+\centering\includegraphics[width=\textwidth]{support}
+\caption{Supportsida för diverse frågor är en av flikarna på hemsidan}
+\label{fig_support}
+\end{figure}
+
+Vi valde att köpa domännamnet arkadprojekt.se då vi hittade detta till ett billigt pris, ett väl passande namn. Hade vi inte hittat
+detta så var tanken att vi skulle använda oss av ett gratis domännamn som inte hade givit oss ett lika passande namn, samt att vi inte
+hade fått lika stor frihet i namnet som i den köpta utvalda domänen.  
+
+Anledningen till att PHP användes var för att vi använder oss av operativsystemet Linux på servern och då kändes detta som det mest 
+naturliga alternativet. Detta även för att det i gruppen fanns kunskaper sedan tidigare om användandet av PHP.
 
 %----------------------------------------------------------------------------------------
 %	CHAPTER 4
 %----------------------------------------------------------------------------------------
 
 \chapter{Projektreflektioner}
-
-\lipsum[1-7] % Dummy text
-
-
 \chapterimage{chapter_head_1.pdf} % Chapter heading image
+
+Gruppens reflektioner kring arbetet är att vi som grupp haft en god kontakt sinsemellan med avstämningsmöten en gång i veckan, nära 
+arbete och en messenger konversation som användes i form av intern kommunikation för gruppen.
+
+Då vi var 6 personer delade vi upp arbetet enligt dess natur (hårdvara, mjukvara, hemsida etc) och delade därefter upp ansvarsområdet 
+på oss i mindre grupper. På så sätt fick vi alla ett bestämt ansvarsområde medan man fanns tillgänglig för att ge stöd åt en annan 
+grupp om det behövdes. Våra möten blev mer avstämningar för att kontrollera och rapportera statusen för de diverse ansvarsområdena 
+samt ett sätt att se till att viktig information eller dylikt kom ut utan att det sägs snabbt i korridoren och därmed lätt missas 
+eller glöms av.
+
+Som helhet har projektet gått bra. Vi har löst uppkomna problem under arbetets gång och fått ut en fullt fungerade arkadmaskin. 
+
 
 \chapter{Presenting Information}
 
